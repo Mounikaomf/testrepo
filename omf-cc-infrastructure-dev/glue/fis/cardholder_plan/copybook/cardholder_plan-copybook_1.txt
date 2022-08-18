@@ -1,0 +1,395 @@
+000100*R K62251                                                               1C
+000200*  BC FINANCIAL SEGMENT MASTER      00 TEMP     VSAM F 1600 00000 GU090D1C
+000300******************************************************************GU090D1C
+000400*    BANK CARD FINANCIAL SEGMENT RECORD. MULIPLE PER ACCOUNT     *GU090D1C
+000500*                                                                *GU090D1C
+000600* NOTE: IF CHANGES ARE MADE TO THIS COPYBOOK, PLEASE CHECK THE   *GU090D1C
+000700*       FOLLOWING AS CHANGES MAY ALSO BE REQUIRED.               *GU090D1C
+000800*                                                                *GU090D1C
+000900*       BCFINSGZ  BCFSTBL  BCLBCMV                               *GU090D1C
+001000*                                                                *GU090D1C
+001100******************************************************************GU090D1C
+001200*                                                                 GU090D1C
+001300     05  BCFU-RECORD                        PIC  X(3000).         CC5864
+001400*                                                                 GU090D1C
+001500     05  BCFU-DETAIL-RECORD REDEFINES BCFU-RECORD.                GU090D1C
+001600         10  BCFU-RECORD-KEY.                                     GU090D1C
+001700             15  BCFU-CORP-ACCT.                                  GU090D1C
+001800                 20  BCFU-CORP              PIC  X(02).           GU090D1C
+001900                 20  BCFU-ACCOUNT-NO1.                            GU090D1C
+002000                     25  BCFU-ACCOUNT-NO    PIC  X(13).           GU090D1C
+002100                     25  FILLER             PIC  X(03).           GU090D1C
+002200             15  BCFU-PLAN.                                       GU090D1C
+002300                 20  BCFU-PLAN-ID           PIC  X(06).           GU090D1C
+002400                 20  BCFU-PLAN-SEQ          PIC  9(03).           GU090D1C
+002500*                                                                 GU090D1C
+002600         10  BCFU-STORE-ID                  PIC  X(09).           GU090D1C
+002700         10  BCFU-ORIGINAL-STATE            PIC  X(03).           GU090D1C
+002800         10  BCFU-PLAN-TYPE                 PIC  X(01).           GU090D1C
+002900             88  BCFU-PLAN-PURCHASE         VALUE 'P'.            GU090D1C
+003000             88  BCFU-PLAN-CASH             VALUE 'C'.            GU090D1C
+003100             88  BCFU-PLAN-SPECIAL          VALUE 'S'.            GU090D1C
+003200             88  BCFU-PLAN-REVOLVING        VALUE 'P' 'C'.        GU090D1C
+003300         10  BCFU-PLAN-CATEGORY             PIC  X(02).           GU090D1C
+003400             88  BCFU-PLAN-TIERED           VALUE 'TI'.           GU090D1C
+004100         10  BCFU-POST-PURCHASE-STATUS      PIC  X(01).           GU090D1C
+004200         10  BCFU-TERMS-STATUS              PIC  X(01).           GU090D1C
+004300             88  BCFU-TERMS-SPECIAL         VALUE 'S'.            GU090D1C
+004400             88  BCFU-TERMS-STANDARD        VALUE 'N'.            GU090D1C
+004500             88  BCFU-TERMS-NORMAL          VALUE 'N'.            GU090D1C
+004600             88  BCFU-TERMS-DISQUALIFIED    VALUE 'D'.            GU090D1C
+004700             88  BCFU-TERMS-MIGRATED        VALUE 'M'.            GU090D1C
+004800             88  BCFU-TERMS-BOTH-DISQ-MIGR  VALUE 'B'.            GU090D1C
+004900         10  BCFU-INTEREST-DEFER-STATUS     PIC  X(01).           GU090D1C
+005000             88  BCFU-INTEREST-DEFER-YES    VALUE 'Y'.            GU090D1C
+005100             88  BCFU-INTEREST-DEFER-NO     VALUE 'N'.            GU090D1C
+005200         10  BCFU-PAYMENT-DEFER-STATUS      PIC  X(01).           GU090D1C
+005300             88  BCFU-PAYMENT-DEFER-YES     VALUE 'Y'.            GU090D1C
+005400             88  BCFU-PAYMENT-DEFER-NO      VALUE 'N'.            GU090D1C
+005500*                                                                 GU090D1C
+005600         10  BCFU-TIMES-BILLED              PIC S9(03)            GU090D1C
+005700                                           SIGN TRAILING SEPARATE.GU090D1C
+005800         10  BCFU-SPECIAL-TERMS-CYCLES      PIC S9(03)            GU090D1C
+005900                                           SIGN TRAILING SEPARATE.GU090D1C
+006000         10  BCFU-INTEREST-DEFER-CYCLES     PIC S9(03)            GU090D1C
+006100                                           SIGN TRAILING SEPARATE.GU090D1C
+006200         10  BCFU-PAYMENT-DEFER-CYCLES      PIC S9(03)            GU090D1C
+006300                                           SIGN TRAILING SEPARATE.GU090D1C
+006400         10  BCFU-DT-SPEC-TERMS-END         PIC S9(09)            GU090D1C
+006500                                           SIGN TRAILING SEPARATE.GU090D1C
+006600         10  BCFU-DT-INTEREST-DEFER         PIC S9(09)            GU090D1C
+006700                                           SIGN TRAILING SEPARATE.GU090D1C
+006800         10  BCFU-DT-PAYMENT-DEFER          PIC S9(09)            GU090D1C
+006900                                           SIGN TRAILING SEPARATE.GU090D1C
+007000         10  BCFU-DT-FIRST-TRANS            PIC S9(09)            GU090D1C
+007100                                           SIGN TRAILING SEPARATE.GU090D1C
+007200         10  BCFU-DT-PAID-OFF               PIC S9(09)            GU090D1C
+007300                                           SIGN TRAILING SEPARATE.GU090D1C
+007400         10  BCFU-DT-LAST-PAYMENT           PIC S9(09)            GU090D1C
+007500                                           SIGN TRAILING SEPARATE.GU090D1C
+007600         10  BCFU-DT-LAST-MAINT             PIC S9(09)            GU090D1C
+007700                                           SIGN TRAILING SEPARATE.GU090D1C
+007800*                                                                 GU090D1C
+007900         10  BCFU-LTD-HIGH-BALANCE          PIC S9(11)V99         GU090D1C
+008000                                           SIGN TRAILING SEPARATE.GU090D1C
+008100         10  BCFU-PYMT-TBL-HIGH-BALANCE     PIC S9(11)V99         GU090D1C
+008200                                           SIGN TRAILING SEPARATE.GU090D1C
+008300         10  BCFU-LTD-INTEREST-CHGD         PIC S9(11)V99         GU090D1C
+008400                                           SIGN TRAILING SEPARATE.GU090D1C
+008500         10  BCFU-LTD-INTEREST-WAIVED       PIC S9(11)V99         GU090D1C
+008600                                           SIGN TRAILING SEPARATE.GU090D1C
+008700         10  BCFU-FIXED-PAY-AMT             PIC S9(11)V99         GU090D1C
+008800                                           SIGN TRAILING SEPARATE.GU090D1C
+008900         10  BCFU-FIXED-PAY-CYCLES          PIC S9(03)            GU090D1C
+009000                                           SIGN TRAILING SEPARATE.GU090D1C
+009100         10  BCFU-LAST-INT-RATE             PIC S9(05)V9(02)      GU090D1C
+009200                                           SIGN TRAILING SEPARATE.GU090D1C
+009600         10  BCFU-LAST-RATE-CODE            PIC  X(03).           GU090D1C
+009700         10  BCFU-LAST-RATE-CODE-SEQ        PIC  9(04).           GU090D1C
+009800         10  BCFU-LAST-MIN-PAY-CODE         PIC  X(03).           GU090D1C
+009900         10  BCFU-LAST-MIN-PAY-CODE-SEQ     PIC  9(04).           GU090D1C
+010000         10  BCFU-MIN-PAY-AMT               PIC S9(11)V99         GU090D1C
+010100                                           SIGN TRAILING SEPARATE.GU090D1C
+010200         10  BCFU-MIN-PAY-DUE               PIC S9(11)V99         GU090D1C
+010300                                           SIGN TRAILING SEPARATE.GU090D1C
+010400         10  BCFU-MIN-PAY-PAST-DUE          PIC S9(11)V99         GU090D1C
+010500                                           SIGN TRAILING SEPARATE.GU090D1C
+010600         10  BCFU-AMT-LAST-PYMT-APPLIED     PIC S9(11)V99         GU090D1C
+010700                                           SIGN TRAILING SEPARATE.GU090D1C
+010800         10  BCFU-PAYMENTS-BEFORE-GRACE     PIC S9(11)V99         GU090D1C
+010900                                           SIGN TRAILING SEPARATE.GU090D1C
+011000         10  BCFU-ORIGINAL-BALANCE          PIC S9(11)V99         GU090D1C
+011100                                           SIGN TRAILING SEPARATE.GU090D1C
+011200*                                                                 GU090D1C
+011300         10  BCFU-RATE-SAVER-RATE           PIC S99V99            GU090D1C
+011400                                           SIGN TRAILING SEPARATE.GU090D1C
+011500*                                                                 GU090D1C
+011600         10  FILLER                         PIC X(04).            K62251
+011610         10  BCFU-PLAN-DUE-DATE             PIC S9(09)            K62251B
+011620                                           SIGN TRAILING SEPARATE.K62251B
+011630         10  BCFU-DATE-END-INTEREST-FREE    PIC S9(09)            K62251B
+011640                                           SIGN TRAILING SEPARATE.K62251B
+011650         10  BCFU-INTEREST-FREE-PRIN-AMT    PIC S9(11)V99         K62251B
+011660                                           SIGN TRAILING SEPARATE.K62251B
+011700*                                                                 GU090D1C
+011800         10  BCFU-CURRENT-ACTIVITY.                               GU090D1C
+011900             15  BCFU-OPENING-BALANCE       PIC S9(11)V99         GU090D1C
+012000                                           SIGN TRAILING SEPARATE.GU090D1C
+012100             15  BCFU-CURRENT               PIC S9(11)V99         GU090D1C
+012200                                           SIGN TRAILING SEPARATE.GU090D1C
+012300             15  BCFU-DEBITS                PIC S9(11)V99         GU090D1C
+012400                                           SIGN TRAILING SEPARATE.GU090D1C
+012500             15  BCFU-CREDITS               PIC S9(11)V99         GU090D1C
+012600                                           SIGN TRAILING SEPARATE.GU090D1C
+012700             15  BCFU-PAYMENTS              PIC S9(11)V99         GU090D1C
+012800                                           SIGN TRAILING SEPARATE.GU090D1C
+012900*                                                                 GU090D1C
+013000         10  BCFU-UNPAID-BALANCES.                                GU090D1C
+013100             15 BCFU-INT-UNPAID.                                  GU090D1C
+013200                 20  BCFU-INT-OPEN-NON-ACCR PIC S9(11)V99         GU090D1C
+013300                                           SIGN TRAILING SEPARATE.GU090D1C
+013400                 20  BCFU-INT-CTD-NON-ACCR  PIC S9(11)V99         GU090D1C
+013500                                           SIGN TRAILING SEPARATE.GU090D1C
+013600                 20  BCFU-INT-CURR-CYC-BAL  PIC S9(11)V99         GU090D1C
+013700                                           SIGN TRAILING SEPARATE.GU090D1C
+013800                 20  BCFU-INT-1CYC-AGO-BAL  PIC S9(11)V99         GU090D1C
+013900                                           SIGN TRAILING SEPARATE.GU090D1C
+014000                 20  BCFU-INT-2CYC-AGO-BAL  PIC S9(11)V99         GU090D1C
+014100                                           SIGN TRAILING SEPARATE.GU090D1C
+014200             15 BCFU-FEES-UNPAID.                                 GU090D1C
+014300                 20  BCFU-FEES-OPEN-NON-ACCR PIC S9(11)V99        GU090D1C
+014400                                           SIGN TRAILING SEPARATE.GU090D1C
+014500                 20  BCFU-FEES-CTD-NON-ACCR PIC S9(11)V99         GU090D1C
+014600                                           SIGN TRAILING SEPARATE.GU090D1C
+014700                 20  BCFU-FEES-CURR-CYC-BAL PIC S9(11)V99         GU090D1C
+014800                                           SIGN TRAILING SEPARATE.GU090D1C
+014900                 20  BCFU-FEES-1CYC-AGO-BAL PIC S9(11)V99         GU090D1C
+015000                                           SIGN TRAILING SEPARATE.GU090D1C
+015100                 20  BCFU-FEES-2CYC-AGO-BAL PIC S9(11)V99         GU090D1C
+015200                                           SIGN TRAILING SEPARATE.GU090D1C
+015300             15 BCFU-AMF-UNPAID.                                  GU090D1C
+015400                 20  BCFU-AMF-OPEN-NON-ACCR PIC S9(11)V99         GU090D1C
+015500                                           SIGN TRAILING SEPARATE.GU090D1C
+015600                 20  BCFU-AMF-CTD-NON-ACCR  PIC S9(11)V99         GU090D1C
+015700                                           SIGN TRAILING SEPARATE.GU090D1C
+015800                 20  BCFU-AMF-CURR-CYC-BAL  PIC S9(11)V99         GU090D1C
+015900                                           SIGN TRAILING SEPARATE.GU090D1C
+016000                 20  BCFU-AMF-1CYC-AGO-BAL  PIC S9(11)V99         GU090D1C
+016100                                           SIGN TRAILING SEPARATE.GU090D1C
+016200                 20  BCFU-AMF-2CYC-AGO-BAL  PIC S9(11)V99         GU090D1C
+016300                                           SIGN TRAILING SEPARATE.GU090D1C
+016400             15 BCFU-INS-UNPAID.                                  GU090D1C
+016500                 20  BCFU-INS-OPEN-NON-ACCR PIC S9(11)V99         GU090D1C
+016600                                           SIGN TRAILING SEPARATE.GU090D1C
+016700                 20  BCFU-INS-CTD-NON-ACCR  PIC S9(11)V99         GU090D1C
+016800                                           SIGN TRAILING SEPARATE.GU090D1C
+016900                 20  BCFU-INS-CURR-CYC-BAL  PIC S9(11)V99         GU090D1C
+017000                                           SIGN TRAILING SEPARATE.GU090D1C
+017100                 20  BCFU-INS-1CYC-AGO-BAL  PIC S9(11)V99         GU090D1C
+017200                                           SIGN TRAILING SEPARATE.GU090D1C
+017300                 20  BCFU-INS-2CYC-AGO-BAL  PIC S9(11)V99         GU090D1C
+017400                                           SIGN TRAILING SEPARATE.GU090D1C
+017500             15 BCFU-PRIN-UNPAID.                                 GU090D1C
+017600                 20  BCFU-PRIN-OPEN-NON-ACCR PIC S9(11)V99        GU090D1C
+017700                                           SIGN TRAILING SEPARATE.GU090D1C
+017800                 20  BCFU-PRIN-CTD-NON-ACCR PIC S9(11)V99         GU090D1C
+017900                                           SIGN TRAILING SEPARATE.GU090D1C
+018000                 20  BCFU-PRIN-CURR-CYC-BAL PIC S9(11)V99         GU090D1C
+018100                                           SIGN TRAILING SEPARATE.GU090D1C
+018200                 20  BCFU-PRIN-1CYC-AGO-BAL PIC S9(11)V99         GU090D1C
+018300                                           SIGN TRAILING SEPARATE.GU090D1C
+018400                 20  BCFU-PRIN-2CYC-AGO-BAL PIC S9(11)V99         GU090D1C
+018500                                           SIGN TRAILING SEPARATE.GU090D1C
+018600         10  BCFU-AGGREGATES.                                     GU090D1C
+018700             15  BCFU-AGGR-CURR-CYC-BAL     PIC S9(13)V99         GU090D1C
+018800                                           SIGN TRAILING SEPARATE.GU090D1C
+018900             15  BCFU-AGGR-1CYC-AGO-BAL     PIC S9(13)V99         GU090D1C
+019000                                           SIGN TRAILING SEPARATE.GU090D1C
+019100             15  BCFU-AGGR-2CYC-AGO-BAL     PIC S9(13)V99         GU090D1C
+019200                                           SIGN TRAILING SEPARATE.GU090D1C
+019300             15  BCFU-AGGR-DELAYED-BAL      PIC S9(13)V99         GU090D1C
+019400                                           SIGN TRAILING SEPARATE.GU090D1C
+019500*                                                                 GU090D1C
+019600         10  BCFU-DELAYED-DAYS              PIC S9(03)            GU090D1C
+019700                                           SIGN TRAILING SEPARATE.GU090D1C
+019800         10  BCFU-CTD-TRANS-FEE             PIC S9(11)V99         GU090D1C
+019900                                           SIGN TRAILING SEPARATE.GU090D1C
+020000         10  BCFU-CTD-TRANS-FEE-AMT         PIC S9(11)V99         GU090D1C
+020100                                           SIGN TRAILING SEPARATE.GU090D1C
+020200         10  BCFU-DEFERRED-DAYS             PIC S9(03)            GU090D1C
+020300                                           SIGN TRAILING SEPARATE.GU090D1C
+020400         10  BCFU-DEFERRED-INTEREST         PIC S9(11)V99         GU090D1C
+020500                                           SIGN TRAILING SEPARATE.GU090D1C
+020600         10  BCFU-AGGR-DEFERRED-BAL         PIC S9(13)V99         GU090D1C
+020700                                           SIGN TRAILING SEPARATE.GU090D1C
+020800         10  BCFU-USER-CODE                 PIC  X(06).           GU090D1C
+020900         10  BCFU-MIGRATE-TO-PLAN           PIC  X(06).           GU090D1C
+021000         10  BCFU-MIGRATE-TO-SEQ            PIC  9(03).           GU090D1C
+021100         10  BCFU-DT-MIGRATE                PIC  9(09).           K62251C
+021200         10  BCFU-DISPUTE-AMT               PIC S9(11)V99         GU090D1C
+021300                                           SIGN TRAILING SEPARATE.GU090D1C
+021400         10  BCFU-EXT-DISPUTE-AMT           PIC S9(11)V99         GU090D1C
+021500                                           SIGN TRAILING SEPARATE.GU090D1C
+021600         10  BCFU-ACCR-DISPUTE-AMT          PIC S9(11)V99         GU090D1C
+021700                                           SIGN TRAILING SEPARATE.GU090D1C
+021800*                                                                 GU090D1C
+021900         10  BCFU-FRONT-LOADED-PLAN-DATA.                         GU090D1C
+022000             15  BCFU-FL-INSTALLMENTS-BILLED PIC S9(03)           GU090D1C
+022100                                           SIGN TRAILING SEPARATE.GU090D1C
+022200             15  BCFU-FL-LAST-INSTALLMENT-DT PIC S9(09)           GU090D1C
+022300                                           SIGN TRAILING SEPARATE.GU090D1C
+022400             15  BCFU-FL-ORIG-INTEREST-AMT  PIC S9(11)V99         GU090D1C
+022500                                           SIGN TRAILING SEPARATE.GU090D1C
+022600             15  BCFU-FL-EARNED-INTEREST-AMT PIC S9(11)V99        GU090D1C
+022700                                           SIGN TRAILING SEPARATE.GU090D1C
+022800             15  BCFU-FL-REBATE-INTEREST-AMT PIC S9(11)V99        GU090D1C
+022900                                           SIGN TRAILING SEPARATE.GU090D1C
+023000             15  BCFU-FL-INTEREST-RATE      PIC S999V9(6)         GU090D1C
+023100                                           SIGN TRAILING SEPARATE.GU090D1C
+023200             15  BCFU-FL-ORIG-INSUR-AMT     PIC S9(11)V99         GU090D1C
+023300                                           SIGN TRAILING SEPARATE.GU090D1C
+023400             15  BCFU-FL-EARNED-INSUR-AMT   PIC S9(11)V99         GU090D1C
+023500                                           SIGN TRAILING SEPARATE.GU090D1C
+023600             15  BCFU-FL-UPFRONT-INSUR-AMT  PIC S9(11)V99         GU090D1C
+023700                                           SIGN TRAILING SEPARATE.GU090D1C
+023800             15  BCFU-FL-REBATE-INSUR-AMT   PIC S9(11)V99         GU090D1C
+023900                                           SIGN TRAILING SEPARATE.GU090D1C
+024000             15  BCFU-SCHED-PAYOFF-DT       PIC S9(09)            GU090D1C
+024100                                           SIGN TRAILING SEPARATE.GU090D1C
+024200             15  BCFU-SCHED-PAYOFF-AMT      PIC S9(11)V99         GU090D1C
+024300                                           SIGN TRAILING SEPARATE.GU090D1C
+024400             15  BCFU-SCHED-PAYOFF-FEE      PIC S9(11)V99         GU090D1C
+024500                                           SIGN TRAILING SEPARATE.GU090D1C
+024600             15  BCFU-SCHED-PAYOFF-REASON   PIC  X(02).           GU090D1C
+024700             15  BCFU-ACTUAL-PAYOFF-DT      PIC S9(09)            GU090D1C
+024800                                           SIGN TRAILING SEPARATE.GU090D1C
+024900             15  BCFU-ACTUAL-PAYOFF-AMT     PIC S9(11)V99         GU090D1C
+025000                                           SIGN TRAILING SEPARATE.GU090D1C
+025100             15  BCFU-FL-UPFRONT-INSUR-PAID PIC S9(11)V99         GU090D1C
+025200                                           SIGN TRAILING SEPARATE.GU090D1C
+025300             15  BCFU-FL-REBATE-INSUR-PAID  PIC S9(11)V99         GU090D1C
+025400                                           SIGN TRAILING SEPARATE.GU090D1C
+025500         10 BCFU-GOVT-UNPD-DATA.                                  GU090D1C
+025600             15  BCFU-GOVT-NON-ACCR-OPN-AMT PIC S9(11)V99         GU090D1C
+025700                                           SIGN TRAILING SEPARATE.GU090D1C
+025800             15  BCFU-GOVT-NON-ACCR-CTD-AMT PIC S9(11)V99         GU090D1C
+025900                                           SIGN TRAILING SEPARATE.GU090D1C
+026000             15  BCFU-GOVT-BAL-CURR-CYC-AMT PIC S9(11)V99         GU090D1C
+026100                                           SIGN TRAILING SEPARATE.GU090D1C
+026200             15  BCFU-GOVT-BAL-1CYC-AGO-AMT PIC S9(11)V99         GU090D1C
+026300                                           SIGN TRAILING SEPARATE.GU090D1C
+026400             15  BCFU-GOVT-BAL-2CYC-AGO-AMT PIC S9(11)V99         GU090D1C
+026500                                           SIGN TRAILING SEPARATE.GU090D1C
+026600         10  BCFU-CTD-FIN-CHG-REV           PIC S9(05)V99         GU090D1C
+026700                                           SIGN TRAILING SEPARATE.GU090D1C
+026800         10  BCFU-INSTALL-LOAN-DATA.                              CCN259
+026900             15  BCFU-INSTALL-TERM          PIC S9(03)            CCN259
+027000                                           SIGN TRAILING SEPARATE.CCN259
+027100             15  BCFU-PREV-INSTALL-TERM     PIC S9(03)            CCN259
+027200                                           SIGN TRAILING SEPARATE.CCN259
+027300             15  BCFU-DT-INSTALL-TERM-CHG   PIC S9(09)            CCN259
+027400                                           SIGN TRAILING SEPARATE.CCN259
+027500             15  BCFU-PREV-MIN-PAY-AMT      PIC S9(11)V99         CCN259
+027600                                           SIGN TRAILING SEPARATE.CCN259
+027700             15  BCFU-ORIG-LOAN-BAL         PIC S9(11)V99         CCN259I
+027800                                           SIGN TRAILING SEPARATE.CCN259
+027900             15  BCFU-LTD-ALL-CRDTS         PIC S9(11)V99         CCN259
+028000                                           SIGN TRAILING SEPARATE.CCN259
+028100             15  BCFU-LTD-INTEREST-SAVED    PIC S9(11)V99         CCN259
+028200                                           SIGN TRAILING SEPARATE.CCN259
+028300             15  BCFU-PREV-CYC-INT-SAVED    PIC S9(11)V99         CCN259
+028400                                           SIGN TRAILING SEPARATE.CCN259
+028500             15  BCFU-DT-INSTALL-PAID       PIC S9(09)            CCN259
+028600                                           SIGN TRAILING SEPARATE.CCN259
+028700             15  BCFU-PROJECTED-PAYOFF-DT   PIC S9(07)            CCN259
+028800                                           SIGN TRAILING SEPARATE.CCN259
+028802             15  BCFU-DT-LAST-LOAN-AMT-CHANGE   PIC S9(09)        CCN480
+028804                                           SIGN TRAILING SEPARATE.CCN480
+028805         10  BCFU-CTD-ACTIVITY.                                   BAS1644
+028810             15  BCFU-CTD-PRIN              PIC S9(11)V99         BAS1644
+028815                                           SIGN TRAILING SEPARATE.BAS1644
+028820             15  BCFU-CTD-INT               PIC S9(11)V99         BAS1644
+028825                                           SIGN TRAILING SEPARATE.BAS1644
+028830             15  BCFU-CTD-INS               PIC S9(11)V99         BAS1644
+028835                                           SIGN TRAILING SEPARATE.BAS1644
+028840             15  BCFU-CTD-FEES              PIC S9(11)V99         BAS1644
+028845                                           SIGN TRAILING SEPARATE.BAS1644
+028850             15  BCFU-CTD-AMF               PIC S9(11)V99         BAS1644
+028855                                           SIGN TRAILING SEPARATE.BAS1644
+028860             15  BCFU-CTD-GOVT              PIC S9(11)V99         BAS1644
+028865                                           SIGN TRAILING SEPARATE.BAS1644
+028867         10  BCFU-FL-ORIG-FEES-AMT          PIC S9(11)V99         CCK003
+028869                                           SIGN TRAILING SEPARATE.CCK003
+028871         10  BCFU-LTD-FEES                  PIC S9(11)V99         CCK001
+028873                                           SIGN TRAILING SEPARATE.CCK001
+028875         10  BCFU-CHARGE-OFF-FLAG           PIC X(01).            CCK001
+028877             88  BCF-CHARGE-OFF-PLAN        VALUE 'Y'.            CCK001
+028879         10  BCFU-PLAN-PAYOFF-RSN            PIC X(03).           BAS2057
+028885         10  BCFU-CTD-USER-AMT-1            PIC S9(11)V99         CCK085
+028886                                           SIGN TRAILING SEPARATE.CCK085
+028888         10  BCFU-OPEN-BAL-PRINCIPAL        PIC S9(11)V99         CCN435
+028890                                           SIGN TRAILING SEPARATE.CCN435
+028892         10  BCFU-OPEN-BAL-INTEREST         PIC S9(11)V99         CCN435
+028894                                           SIGN TRAILING SEPARATE.CCN435
+028896         10  BCFU-OPEN-BAL-INSURANCE        PIC S9(11)V99         CCN435
+028898                                           SIGN TRAILING SEPARATE.CCN435
+028900         10  BCFU-OPEN-BAL-FEES             PIC S9(11)V99         CCN435
+028902                                           SIGN TRAILING SEPARATE.CCN435
+028904         10  BCFU-OPEN-BAL-MEMB-FEES        PIC S9(11)V99         CCN435
+028906                                           SIGN TRAILING SEPARATE.CCN435
+028908         10  BCFU-OPEN-BAL-GOVT-CHGS        PIC S9(11)V99         CCN435
+028910                                           SIGN TRAILING SEPARATE.CCN435
+028912         10  BCFU-LAST-CYC-INTEREST-AMT     PIC S9(11)V99         CCN435
+028914                                           SIGN TRAILING SEPARATE.CCN435
+028916         10  BCFU-CTD-PAST-DUE              PIC S9(11)V99         CCW016
+028918                                           SIGN TRAILING SEPARATE.CCW016
+028920         10  BCFU-DUE-DT-REM                PIC S9(05)            CCW016C
+028922                                           SIGN TRAILING SEPARATE.CCW016C
+028924         10  BCFU-LOAN-TRACE-NO             PIC X(08).            BAS2443
+028925         10  BCFU-1ST-BILLING-DT            PIC S9(09)            BAS2443
+028926                                           SIGN TRAILING SEPARATE.BAS2443
+028928         10  BCFU-PREV-INT-RATE             PIC S9(03)V9(6)       BAS2443
+028930                                           SIGN TRAILING SEPARATE.BAS2443
+028932         10  BCFU-INTRODUCTORY-RATE         PIC S9(03)V9(5)       BAS2443
+028934                                           SIGN TRAILING SEPARATE.BAS2443
+028936         10  BCFU-FL-PERIODIC-RATE          PIC S9(03)V9(6)       BAS2443
+028938                                           SIGN TRAILING SEPARATE.BAS2443
+028940         10  BCFU-LTD-AMT-OF-PAYMENTS       PIC S9(11)V99         BAS2443
+028942                                           SIGN TRAILING SEPARATE.BAS2443
+028944         10  BCFU-STMT-INT-AMT-TABLE.                             CC0099
+028946             15  BCFU-STMT-INT-AMT                                CC0099
+028948                        OCCURS 6 TIMES      PIC S9(11)V99         CC0099
+028950                                           SIGN TRAILING SEPARATE.CC0099
+028952         10  BCFU-DAILY-INT-IND             PIC X(01).            CC0935
+028954         10  BCFU-DAILY-INT-CURR-CYC-AMT    PIC S9(7)V9(6)        CC0935
+028956                                           SIGN TRAILING SEPARATE.CC0935
+028958         10  BCFU-DAILY-INT-1CYC-AGO-AMT    PIC S9(7)V9(6)        CC0935
+028960                                           SIGN TRAILING SEPARATE.CC0935
+028962         10  BCFU-DAILY-INT-2CYC-AGO-AMT    PIC S9(7)V9(6)        CC0935
+028964                                           SIGN TRAILING SEPARATE.CC0935
+028966         10  BCFU-DAILY-INT-DELAYED-AMT     PIC S9(7)V9(6)        CC0935
+028968                                           SIGN TRAILING SEPARATE.CC0935
+028995         10  BCFU-BALANCE-TYPE              PIC X(01).            CC1683
+029000         10  BCFU-NOR-PAY-SEQUENCE          PIC S9(03)            CC2368
+029100                                           SIGN TRAILING SEPARATE.CC2368
+029110         10  BCFU-UPFRONT-FEES-AMT          PIC S9(11)V99         CC3171
+029120                                           SIGN TRAILING SEPARATE.CC3171
+029130         10  BCFU-UPFRONT-FEES-EARNED       PIC S9(11)V99         CC3171
+029140                                           SIGN TRAILING SEPARATE.CC3171
+029150         10  BCFU-FIN-CHG-OPTION            PIC X(01).            CC4700
+029160         10  BCFU-PREV-CYC-PYMT-PROF        PIC X(01).            CC4700
+029170         10  BCFU-PYMT-PROF-ELIGIBLE-IND    PIC X(01).            CC5056
+029180         10  BCFU-CTD-DISPUTE-AMT           PIC S9(11)V99         CC5510
+029190                                           SIGN TRAILING SEPARATE.CC5510
+029192         10  BCFU-PREV-PMTS-BEFORE-GRACE    PIC S9(11)V99         CC5848
+029193                                           SIGN TRAILING SEPARATE.CC5848
+029194         10  BCFU-PREV-OPENING-BALANCE      PIC S9(11)V99         CC5848
+029195                                           SIGN TRAILING SEPARATE.CC5848
+029196         10  BCFU-PREV-DISPUTE-AMT-BALANCE  PIC S9(11)V99         CC5848
+029197                                           SIGN TRAILING SEPARATE.CC5848
+029200         10  BCFU-CTD-APR-FEE-AMT           PIC S9(11)V99         CC5849
+029210                                           SIGN TRAILING SEPARATE.CC5849
+029220         10  BCFU-CTD-APR-TRAN-AMT          PIC S9(11)V99         CC5849
+029230                                           SIGN TRAILING SEPARATE.CC5849
+029240         10  BCFU-MERCHANT-DESCRIPTION      PIC  X(25).           CC6227
+029300*                                                                 CC1683
+029400*                                                                 CC1683
+029500*                                                                 CC1683
+029600*                                                                 CC1683
+029700*                                                                 CC1683
+029800*                                                                 CC1683
+029900*                                                                 CC1683
+030000*                                                                 CC1683
+030100*                                                                 CC1683
+030200*                                                                 CC1683
+030300*                                                                 CC1683
+030400*                                                                 CC1683
+030500*                                                                 CC1683
+030600*                                                                 CC1683
+030700*                                                                 CC1683
+250000*                                                                 CC1683
+250100         10  FILLER                         PIC X(1026).          CC6227
+300000*                                                                 CC1683
+999700*                                                                 CC1683
+999800*======================  END OF  GU090D1C ========================CC1683
+999900*                                                                 CC1683

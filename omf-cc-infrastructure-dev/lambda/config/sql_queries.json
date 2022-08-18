@@ -1,0 +1,11 @@
+{
+    "fraud_hot_file_unlod_to_s3": {
+        "sql_query": "CALL sp_ks_unload_fraud_hot_file()"
+    },
+    "onus_data_unload_to_s3": {
+        "sql_query": "CALL sp_ks_unload_onus_data()"
+    },
+    "pccm_extract_file_unload_to_s3": {
+        "sql_query": "CALL sp_ks_unload_pccm_extract_file()"
+    }
+}

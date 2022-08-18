@@ -1,0 +1,91 @@
+000100*N CC2136                                                         GU052D1C
+000200******************************************************************GU052D1C
+000300*                                                                *GU052D1C
+000400*    GU052D1C - GATEWAY PAYMENT ALLOCATION DETAIL UNPACK LAYOUT  *GU052D1C
+000500*                                                                *GU052D1C
+000600******************************************************************GU052D1C
+000700*                                                                 GU052D1C
+000800*01  GU052D1C-DETAIL-RECORD.                                      GU052D1C
+000900*                                                                 GU052D1C
+001000     05  GU052D1C-CORP-ACCT.                                      GU052D1C
+001100         10  GU052D1C-CORP-ID            PIC  X(02).              GU052D1C
+001200         10  GU052D1C-ACCOUNT-NO         PIC  X(16).              GU052D1C
+001300     05  GU052D1C-TRAN-DT                PIC  9(08).              GU052D1C
+001400     05  GU052D1C-POST-DT                PIC  9(08).              GU052D1C
+001500     05  GU052D1C-TRAN-CD                PIC  X(02).              GU052D1C
+001600     05  GU052D1C-REASON-CD              PIC  X(02).              GU052D1C
+001700     05  GU052D1C-TRAN-REF-NBR           PIC  X(23).              GU052D1C
+001800     05  GU052D1C-TRAN-AMT               PIC S9(11)V99            GU052D1C
+001900                                         SIGN TRAILING SEPARATE.  GU052D1C
+002000     05  GU052D1C-PLAN-ID                PIC  X(06).              GU052D1C
+002100     05  GU052D1C-PLAN-SEQ               PIC  9(03).              GU052D1C
+002200     05  GU052D1C-PRIN-CURR-CYC-AMT      PIC S9(11)V99            GU052D1C
+002300                                         SIGN TRAILING SEPARATE.  GU052D1C
+002400     05  GU052D1C-PRIN-1CYC-AGO-AMT      PIC S9(11)V99            GU052D1C
+002500                                         SIGN TRAILING SEPARATE.  GU052D1C
+002600     05  GU052D1C-PRIN-2CYC-AGO-AMT      PIC S9(11)V99            GU052D1C
+002700                                         SIGN TRAILING SEPARATE.  GU052D1C
+002800     05  GU052D1C-PRIN-CTD-NACC-AMT      PIC S9(11)V99            GU052D1C
+002900                                         SIGN TRAILING SEPARATE.  GU052D1C
+003000     05  GU052D1C-PRIN-OPEN-NACC-AMT     PIC S9(11)V99            GU052D1C
+003100                                         SIGN TRAILING SEPARATE.  GU052D1C
+003200     05  GU052D1C-INT-CURR-CYC-AMT       PIC S9(11)V99            GU052D1C
+003300                                         SIGN TRAILING SEPARATE.  GU052D1C
+003400     05  GU052D1C-INT-1CYC-AGO-AMT       PIC S9(11)V99            GU052D1C
+003500                                         SIGN TRAILING SEPARATE.  GU052D1C
+003600     05  GU052D1C-INT-2CYC-AGO-AMT       PIC S9(11)V99            GU052D1C
+003700                                         SIGN TRAILING SEPARATE.  GU052D1C
+003800     05  GU052D1C-INT-CTD-NACC-AMT       PIC S9(11)V99            GU052D1C
+003900                                         SIGN TRAILING SEPARATE.  GU052D1C
+004000     05  GU052D1C-INT-OPEN-NACC-AMT      PIC S9(11)V99            GU052D1C
+004100                                         SIGN TRAILING SEPARATE.  GU052D1C
+004200     05  GU052D1C-FEES-CURR-CYC-AMT      PIC S9(11)V99            GU052D1C
+004300                                         SIGN TRAILING SEPARATE.  GU052D1C
+004400     05  GU052D1C-FEES-1CYC-AGO-AMT      PIC S9(11)V99            GU052D1C
+004500                                         SIGN TRAILING SEPARATE.  GU052D1C
+004600     05  GU052D1C-FEES-2CYC-AGO-AMT      PIC S9(11)V99            GU052D1C
+004700                                         SIGN TRAILING SEPARATE.  GU052D1C
+004800     05  GU052D1C-FEES-CTD-NACC-AMT      PIC S9(11)V99            GU052D1C
+004900                                         SIGN TRAILING SEPARATE.  GU052D1C
+005000     05  GU052D1C-FEES-OPEN-NACC-AMT     PIC S9(11)V99            GU052D1C
+005100                                         SIGN TRAILING SEPARATE.  GU052D1C
+005200     05  GU052D1C-GOVT-CURR-CYC-AMT      PIC S9(11)V99            GU052D1C
+005300                                         SIGN TRAILING SEPARATE.  GU052D1C
+005400     05  GU052D1C-GOVT-1CYC-AGO-AMT      PIC S9(11)V99            GU052D1C
+005500                                         SIGN TRAILING SEPARATE.  GU052D1C
+005600     05  GU052D1C-GOVT-2CYC-AGO-AMT      PIC S9(11)V99            GU052D1C
+005700                                         SIGN TRAILING SEPARATE.  GU052D1C
+005800     05  GU052D1C-GOVT-CTD-NACC-AMT      PIC S9(11)V99            GU052D1C
+005900                                         SIGN TRAILING SEPARATE.  GU052D1C
+006000     05  GU052D1C-GOVT-OPEN-NACC-AMT     PIC S9(11)V99            GU052D1C
+006100                                         SIGN TRAILING SEPARATE.  GU052D1C
+006200     05  GU052D1C-AMF-CURR-CYC-AMT       PIC S9(11)V99            GU052D1C
+006300                                         SIGN TRAILING SEPARATE.  GU052D1C
+006400     05  GU052D1C-AMF-1CYC-AGO-AMT       PIC S9(11)V99            GU052D1C
+006500                                         SIGN TRAILING SEPARATE.  GU052D1C
+006600     05  GU052D1C-AMF-2CYC-AGO-AMT       PIC S9(11)V99            GU052D1C
+006700                                         SIGN TRAILING SEPARATE.  GU052D1C
+006800     05  GU052D1C-AMF-CTD-NACC-AMT       PIC S9(11)V99            GU052D1C
+006900                                         SIGN TRAILING SEPARATE.  GU052D1C
+007000     05  GU052D1C-AMF-OPEN-NACC-AMT      PIC S9(11)V99            GU052D1C
+007100                                         SIGN TRAILING SEPARATE.  GU052D1C
+007200     05  GU052D1C-INS-CURR-CYC-AMT       PIC S9(11)V99            GU052D1C
+007300                                         SIGN TRAILING SEPARATE.  GU052D1C
+007400     05  GU052D1C-INS-1CYC-AGO-AMT       PIC S9(11)V99            GU052D1C
+007500                                         SIGN TRAILING SEPARATE.  GU052D1C
+007600     05  GU052D1C-INS-2CYC-AGO-AMT       PIC S9(11)V99            GU052D1C
+007700                                         SIGN TRAILING SEPARATE.  GU052D1C
+007800     05  GU052D1C-INS-CTD-NACC-AMT       PIC S9(11)V99            GU052D1C
+007900                                         SIGN TRAILING SEPARATE.  GU052D1C
+008000     05  GU052D1C-INS-OPEN-NACC-AMT      PIC S9(11)V99            GU052D1C
+008100                                         SIGN TRAILING SEPARATE.  GU052D1C
+008105*                                                                 CC3143
+008110     05  GU052D1C-TRAN-NUM               PIC S9(04)               CC3143
+008115                                         SIGN TRAILING SEPARATE.  CC3143
+008120*                                                                 CC3143
+008200     05  FILLER                          PIC  X(41).              CC3143
+008300*                                                                 GU052D1C
+999600*                                                                 GU052D1C
+999700***************************************************************** GU052D1C
+999800****        END OF COPYBOOK GU052D1C                        ***** GU052D1C
+999900***************************************************************** GU052D1C

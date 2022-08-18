@@ -1,0 +1,8 @@
+       01  NAU-RECORD-H.
+           05  NAU-CORPORATION-NUMBER  PIC X(2).
+           05  NAU-ACCOUNT-NO1         PIC X(16).
+           05  FILE_DT   PIC S9(9)
+                                    SIGN TRAILING SEPARATE.
+           05  NAU-FILE-DATE-NEXT      PIC S9(9)
+                                    SIGN TRAILING SEPARATE.
+           05  FILLER                  PIC X(2210).

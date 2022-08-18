@@ -1,0 +1,444 @@
+000100*N K62251                                                         K62251
+000200*¬ NAME / ADDRESS REC W-AREA        00 TEMP     VSAM F 2248 00000 GU011D1C
+000300******************************************************************GU011D1C
+000400*            NAME AND ADDRESS MASTER RECORD WORK AREA            *GU011D1C
+000500*                                                                *GU011D1C
+000600*            THIS RECORD LAYOUT WAS REPLACED FOR BASE 2000       *GU011D1C
+000700*            IT HAS BEEN REORGANIZED AND CARDHOLDER FIELDS       *GU011D1C
+000800*            FROM THE BCMASTER HAVE BEEN MOVED HERE              *GU011D1C
+000900******************************************************************GU011D1C
+001000*                                                                 GU011D1C
+001100*01  NAME-ADDRESS-RECORDS.                                        GU011D1C
+001200*                                                                 GU011D1C
+003500******************************************************************GU011D1C
+003600*********               GU011D1C RECORD KEY              *********GU011D1C
+003700******************************************************************GU011D1C
+003800*                                                                 GU011D1C
+003900         06  NAU-KEY-AREA-W.                                      GU011D1C
+004000         10  NAU-RECORD-KEY-W.                                    GU011D1C
+004100             15  NAU-CORPORATION-W           PIC  X(02).          GU011D1C
+004200             15  NAU-ACCOUNT-NO1-W           PIC  X(16).          GU011D1C
+005200         06  NAU-DATA-AREA-W.                                     GU011D1C
+005300*                                                                 GU011D1C
+005400******************************************************************GU011D1C
+005500*********               CURRENT ADDRESS                  *********GU011D1C
+005600******************************************************************GU011D1C
+005700*                                                                 GU011D1C
+005800         10  NAU-CURRENT-ADDRESS.                                 GU011D1C
+005900             15  NAU-ADDR1-W                 PIC  X(30).          GU011D1C
+006500             15  NAU-ADDR2-W                 PIC  X(30).          GU011D1C
+006800             15  NAU-ADDR3-W                 PIC  X(30).          GU011D1C
+007100             15  NAU-CITYSTATEZIP-W.                              GU011D1C
+007200                 20  NAU-CITY-W              PIC  X(30).          GU011D1C
+007700                 20  NAU-STATE-W             PIC  X(03).          GU011D1C
+007800                 20  NAU-CURRENT-ZIP-W       PIC  X(09).          GU011D1C
+008400             15  FILLER                      PIC  X(10).          GU011D1C
+008500*                                                                 GU011D1C
+008600******************************************************************GU011D1C
+008700*********          STATEMENT MAILING ADDRESS             *********GU011D1C
+008800******************************************************************GU011D1C
+008900*                                                                 GU011D1C
+009000         10  NAU-STMT-MAILING-ADDRESS.                            GU011D1C
+009100             15  NAU-MAIL-ADDR1-W            PIC  X(30).          GU011D1C
+009400             15  NAU-MAIL-ADDR2-W            PIC  X(30).          GU011D1C
+009700             15  NAU-MAIL-ADDR3-W            PIC  X(30).          GU011D1C
+010000             15  NAU-MAIL-CITY-ST-ZIP-W.                          GU011D1C
+010100                 20  NAU-MAIL-CITY-W         PIC  X(30).          GU011D1C
+010600                 20  NAU-MAIL-STATE-W        PIC  X(03).          GU011D1C
+010700                 20  NAU-MAIL-ZIP-W          PIC  X(09).          GU011D1C
+011300             15  FILLER                      PIC  X(10).          GU011D1C
+011400*DEL 011002,011070  >>>  THESE LINES WERE DELETED BY  >>>         GU011D1C
+011500*                                                                 GU011D1C
+011600******************************************************************GU011D1C
+011700*********               PREVIOUS ADDRESS                 *********GU011D1C
+011800******************************************************************GU011D1C
+011900*                                                                 GU011D1C
+012000         10  NAU-PREVIOUS-ADDRESS.                                GU011D1C
+012100             15  NAU-PREV-ADDR-W             PIC  X(30).          GU011D1C
+012400             15  NAU-PREV-CITY-W             PIC  X(30).          GU011D1C
+012600             15  NAU-PREV-STATE-W            PIC  X(03).          GU011D1C
+012700*                                                                 GU011D1C
+012800******************************************************************GU011D1C
+012900*********              ADDRESS CHANGE DATE               *********GU011D1C
+013000******************************************************************GU011D1C
+013100*                                                                 GU011D1C
+013200         10  NAU-LAST-ADDR-CHANGE-DATE       PIC S9(09)           GU011D1C
+013300                                           SIGN TRAILING SEPARATE.GU011D1C
+013400*                                                                 GU011D1C
+013500******************************************************************GU011D1C
+013600*********               TELEPHONE NUMBERS                *********GU011D1C
+013700******************************************************************GU011D1C
+013800*                                                                 GU011D1C
+013900         10  NAU-TELEPHONE-NUMBERS.                               GU011D1C
+014000             15  NAU-PHONE-W                 PIC  X(16).          GU011D1C
+014100             15  NAU-BUSINESS-PHONE-W        PIC  X(16).          GU011D1C
+014200             15  NAU-PHONE-3-FLAG-W          PIC  X(01).          GU011D1C
+014300                 88  NAU-PHONE-3-NONE             VALUE ' '.      GU011D1C
+014400                 88  NAU-PHONE-3-NEIGHBOR         VALUE 'N'.      GU011D1C
+014500                 88  NAU-PHONE-3-BUSINESS2        VALUE 'B'.      GU011D1C
+014600                 88  NAU-PHONE-3-OTHER            VALUE 'O'.      GU011D1C
+014700             15  NAU-PHONE-3-W               PIC  X(16).          GU011D1C
+014800*                                                                 GU011D1C
+014900******************************************************************GU011D1C
+015000*********                  PRIMARY NAME                  *********GU011D1C
+015100******************************************************************GU011D1C
+015200*                                                                 GU011D1C
+015300         10  NAU-NAME-1.                                          GU011D1C
+015400             15  NAU-NAME-W.                                      GU011D1C
+015500                 20  NAU-NAME-SHORT-W        PIC  X(20).          GU011D1C
+015600                 20  FILLER                  PIC  X(20).          GU011D1C
+015700             15  NAU-TAX-ID-W                PIC  X(13).          GU011D1C
+015800             15  NAU-NAME1-SEX-CODE          PIC  X(01).          GU011D1C
+015900             15  NAU-NAME1-BIRTH-DT          PIC S9(09)           GU011D1C
+016000                                           SIGN TRAILING SEPARATE.GU011D1C
+016100             15  NAU-NAME1-SPECIAL-HANDLING  PIC  X(01).          GU011D1C
+016200             15  NAU-NAME1-CREDIT-ASSOC      PIC  X(01).          GU011D1C
+016300*                                                                 GU011D1C
+016400*                                                                 GU011D1C
+016500*                                                                 GU011D1C
+016600*                                                                 GU011D1C
+016700*                                                                 GU011D1C
+016800*                                                                 GU011D1C
+016900*                                                                 GU011D1C
+017000             15  NAU-NAME1-LOC-POINTERS.                          GU011D1C
+017100                 20  NAU-BEG-LOC-1ST-NAME1-W PIC  9(02).          GU011D1C
+017200                 20  NAU-BEG-LOC-MID-NAME1-W PIC  9(02).          GU011D1C
+017300                 20  NAU-BEG-LOC-LST-NAME1-W PIC  9(02).          GU011D1C
+017400                 20  NAU-BEG-LOC-SUF-NAME1-W PIC  9(02).          GU011D1C
+017500             15  NAU-NAME1-CIS-NBR           PIC  X(13).          GU011D1C
+017600*                                                                 GU011D1C
+017700*                                                                 GU011D1C
+017800******************************************************************GU011D1C
+017900*********                 SECONDARY NAME                 *********GU011D1C
+018000******************************************************************GU011D1C
+018100*                                                                 GU011D1C
+018200         10  NAU-NAME-2.                                          GU011D1C
+018300             15  NAU-SPOUSE-NAME-W           PIC  X(40).          GU011D1C
+018400             15  NAU-SPOUSE-SSI-W            PIC  X(13).          GU011D1C
+018500             15  NAU-NAME2-SEX-CODE          PIC  X(01).          GU011D1C
+018600             15  NAU-NAME2-BIRTH-DT          PIC S9(09)           GU011D1C
+018700                                           SIGN TRAILING SEPARATE.GU011D1C
+018800             15  NAU-NAME2-SPECIAL-HANDLING  PIC  X(01).          GU011D1C
+018900             15  NAU-NAME2-CREDIT-ASSOC      PIC  X(01).          GU011D1C
+019000*                                                                 GU011D1C
+019100*                                                                 GU011D1C
+019200*                                                                 GU011D1C
+019300*                                                                 GU011D1C
+019400             15  NAU-NAME2-LOC-POINTERS.                          GU011D1C
+019500                 20  NAU-BEG-LOC-1ST-NAME2-W PIC  9(02).          GU011D1C
+019600                 20  NAU-BEG-LOC-MID-NAME2-W PIC  9(02).          GU011D1C
+019700                 20  NAU-BEG-LOC-LST-NAME2-W PIC  9(02).          GU011D1C
+019800                 20  NAU-BEG-LOC-SUF-NAME2-W PIC  9(02).          GU011D1C
+019900             15  NAU-NAME2-CIS-NBR           PIC  X(13).          GU011D1C
+020000*                                                                 GU011D1C
+020100*                                                                 GU011D1C
+020200******************************************************************GU011D1C
+020300*********                     NAME 3                     *********GU011D1C
+020400******************************************************************GU011D1C
+020500*                                                                 GU011D1C
+020600         10  NAU-NAME-3.                                          GU011D1C
+020700             15  NAU-AUTH-USER-W             PIC  X(40).          GU011D1C
+020800             15  NAU-AUTH-USER-SSI-W         PIC  X(13).          GU011D1C
+020900             15  NAU-NAME3-SEX-CODE          PIC  X(01).          GU011D1C
+021000             15  NAU-NAME3-BIRTH-DT          PIC S9(09)           GU011D1C
+021100                                           SIGN TRAILING SEPARATE.GU011D1C
+021200             15  NAU-NAME3-SPECIAL-HANDLING  PIC  X(01).          GU011D1C
+021300             15  NAU-NAME3-CREDIT-ASSOC      PIC  X(01).          GU011D1C
+021400*                                                                 GU011D1C
+021500*                                                                 GU011D1C
+021600*                                                                 GU011D1C
+021700*                                                                 GU011D1C
+021800             15  NAU-NAME3-LOC-POINTERS.                          GU011D1C
+021900                 20  NAU-BEG-LOC-1ST-NAME3-W PIC  9(02).          GU011D1C
+022000                 20  NAU-BEG-LOC-MID-NAME3-W PIC  9(02).          GU011D1C
+022100                 20  NAU-BEG-LOC-LST-NAME3-W PIC  9(02).          GU011D1C
+022200                 20  NAU-BEG-LOC-SUF-NAME3-W PIC  9(02).          GU011D1C
+022300             15  NAU-NAME3-CIS-NBR           PIC  X(13).          GU011D1C
+022400*                                                                 GU011D1C
+022500*                                                                 GU011D1C
+022600******************************************************************GU011D1C
+022700*********                     NAME 4                     *********GU011D1C
+022800******************************************************************GU011D1C
+022900*                                                                 GU011D1C
+023000         10  NAU-NAME-4.                                          GU011D1C
+023100             15  NAU-AUTH-USR4-W             PIC  X(40).          GU011D1C
+023200             15  NAU-AUTH-USR4-SSI-W         PIC  X(13).          GU011D1C
+023300             15  NAU-NAME4-SEX-CODE          PIC  X(01).          GU011D1C
+023400             15  NAU-NAME4-BIRTH-DT          PIC S9(09)           GU011D1C
+023500                                           SIGN TRAILING SEPARATE.GU011D1C
+023600             15  NAU-NAME4-SPECIAL-HANDLING  PIC  X(01).          GU011D1C
+023700             15  NAU-NAME4-CREDIT-ASSOC      PIC  X(01).          GU011D1C
+023800*                                                                 GU011D1C
+023900*                                                                 GU011D1C
+024000*                                                                 GU011D1C
+024100*                                                                 GU011D1C
+024200             15  NAU-NAME4-LOC-POINTERS.                          GU011D1C
+024300                 20  NAU-BEG-LOC-1ST-NAME4-W PIC  9(02).          GU011D1C
+024400                 20  NAU-BEG-LOC-MID-NAME4-W PIC  9(02).          GU011D1C
+024500                 20  NAU-BEG-LOC-LST-NAME4-W PIC  9(02).          GU011D1C
+024600                 20  NAU-BEG-LOC-SUF-NAME4-W PIC  9(02).          GU011D1C
+024700             15  NAU-NAME4-CIS-NBR           PIC  X(13).          GU011D1C
+024800*                                                                 GU011D1C
+024900*                                                                 GU011D1C
+025000******************************************************************GU011D1C
+025100*********              CARDHOLDER RELATED DATA           *********GU011D1C
+025200******************************************************************GU011D1C
+025300*                                                                 GU011D1C
+025400         10  NAU-CARDHOLDER-DATA.                                 GU011D1C
+025500             15  NAU-PERSONAL-CORP-REP       PIC  X(10).          GU011D1C
+025600             15  NAU-PERSONAL-CORP-LOC       PIC  X(05).          GU011D1C
+025700             15  NAU-LANGUAGE-PREFERENCE-CODE PIC X(01).          GU011D1C
+025800             15  NAU-VIP-IND                 PIC  X(01).          GU011D1C
+025900                 88  VIP                              VALUE 'X'.  GU011D1C
+026000                 88  NON-VIP                          VALUE ' '.  GU011D1C
+026100             15  NAU-FREE-FORM-MEMO-FIELD    PIC  X(30).          GU011D1C
+026200             15  NAU-EMBOSSING-LINE4         PIC  X(25).          GU011D1C
+026300             15  NAU-DT-LST-CREDIT-REVIEW    PIC S9(09)           GU011D1C
+026400                                           SIGN TRAILING SEPARATE.GU011D1C
+026500*DEL 025500,025518  >>>  THESE LINES WERE DELETED BY  >>>         GU011D1C
+026600*DEL 025519,025521  >>>  THESE LINES WERE DELETED BY  >>>         GU011D1C
+026700*DEL 025522,025528  >>>  THESE LINES WERE DELETED BY  >>>         GU011D1C
+026800******************************************************************GU011D1C
+026900*********          TEMPORARY MAILING ADDRESS             *********GU011D1C
+027000******************************************************************GU011D1C
+027100*                                                                 GU011D1C
+027200         07  NAU-TEMP-ADDRESS.                                    GU011D1C
+027300         10  NAU-TEMP-ADDRESS-START-DT       PIC 9(9).            GU011D1C
+027400         10  NAU-TEMP-ADDRESS-END-DT         PIC 9(9).            GU011D1C
+027500         10  NAU-TEMP-FAX                    PIC X(16).           GU011D1C
+027600         10  NAU-TEMP-EMAIL                 PIC X(70).            GU011D1C
+027700         10  NAU-TEMP-DELIVERY-OPTION        PIC X.               GU011D1C
+027800             88  NAU-TEMP-DELIVERY-PAPER         VALUE SPACE.     GU011D1C
+027900             88  NAU-TEMP-DELIVERY-FAX           VALUE 'F'.       GU011D1C
+028000             88  NAU-TEMP-DELIVERY-EMAIL         VALUE 'E'.       GU011D1C
+028100             88  NAU-TEMP-DELIVERY-POSTAL        VALUE 'P'.       GU011D1C
+028200             88  NAU-TEMP-DELIVERY-EBILL         VALUE 'B'.       GU011D1C
+028300         10  NAU-TEMP-LTR-DELV-OPTION        PIC X.               GU011D1C
+028400             88  NAU-TEMP-LTR-DELV-PAPER         VALUE SPACE.     GU011D1C
+028500             88  NAU-TEMP-LTR-DELV-FAX           VALUE 'F'.       GU011D1C
+028600             88  NAU-TEMP-LTR-DELV-EMAIL         VALUE 'E'.       GU011D1C
+028700             88  NAU-TEMP-LTR-DELV-POSTAL        VALUE 'P'.       GU011D1C
+028800         10  NAU-TEMP-MAILING-ADDRESS.                            GU011D1C
+028900             15  NAU-TEMP-ADDR1-W              PIC  X(30).        GU011D1C
+029200             15  NAU-TEMP-ADDR2-W              PIC  X(30).        GU011D1C
+029500             15  NAU-TEMP-ADDR3-W              PIC  X(30).        GU011D1C
+029800             15  NAU-TEMP-CITY-ST-ZIP-W.                          GU011D1C
+029900                 20  NAU-TEMP-CITY-W           PIC  X(30).        GU011D1C
+030400                 20  NAU-TEMP-STATE-W          PIC  X(03).        GU011D1C
+030500                 20  NAU-TEMP-ZIP-W            PIC  X(09).        GU011D1C
+031100*                                                                 GU011D1C
+031200******************************************************************GU011D1C
+031300*********    DIRECT MAIL OPTION                          *********GU011D1C
+031400******************************************************************GU011D1C
+031500*                                                                 GU011D1C
+031600          10 NAU-CORRESPONDENCE-OPTIONS.                          GU011D1C
+031700             15  NAU-DIRECT-MAIL-IND         PIC X.               GU011D1C
+031800                 88  NAU-DIRECT-MAIL-NO          VALUE 'N'.       GU011D1C
+031900                 88  NAU-DIRECT-MAIL-YES         VALUE SPACE.     GU011D1C
+032000*                                                                 GU011D1C
+032100******************************************************************GU011D1C
+032200*********    ELECTRONIC DELIVERY OPTIONS                 *********GU011D1C
+032300******************************************************************GU011D1C
+032400*                                                                 GU011D1C
+032500             15  NAU-FAX                     PIC X(16).           GU011D1C
+032600             15  NAU-EMAIL                   PIC X(70).           GU011D1C
+032700             15  NAU-STMT-DELIVERY-OPTION    PIC X.               GU011D1C
+032800                 88  NAU-STMT-DELIVERY-PAPER     VALUE SPACE.     GU011D1C
+032900                 88  NAU-STMT-DELIVERY-FAX       VALUE 'F'.       GU011D1C
+033000                 88  NAU-STMT-DELIVERY-EMAIL     VALUE 'E'.       GU011D1C
+033100                 88  NAU-STMT-DELIVERY-EBILL     VALUE 'B'.       GU011D1C
+033200             15  NAU-LTR-DELIVERY-OPTION     PIC X.               GU011D1C
+033300                 88  NAU-LTR-DELIVERY-PAPER      VALUE 'P'.       GU011D1C
+033400                 88  NAU-LTR-DELIVERY-FAX        VALUE 'F'.       GU011D1C
+033500                 88  NAU-LTR-DELIVERY-EMAIL      VALUE 'E'.       GU011D1C
+033600             15  FILLER                      PIC X(10).           GU011D1C
+033700*                                                                 GU011D1C
+033800*                                                                 GU011D1C
+033900*                                                                 GU011D1C
+034000*                                                                 GU011D1C
+034100*                                                                 GU011D1C
+034200*                                                                 GU011D1C
+034300         07  NAU-R162-NEW-FIELDS.                                 K62251
+034400         10  NAU-EMBOSS-NAME-1               PIC  X(26).          GU011D1C
+034500         10  NAU-EMBOSS-NAME-2               PIC  X(26).          GU011D1C
+034600         10  NAU-EMBOSS-NAME-3               PIC  X(26).          GU011D1C
+034700         10  NAU-EMBOSS-NAME-4               PIC  X(26).          GU011D1C
+034800         10  NAU-PRIMARY-ADDR-DATA-W.                             GU011D1C
+034900             15  FILLER                      PIC  X(01).          K62251
+035000             15  FILLER                      PIC  X(01).          K62251
+035100             15  NAU-PRI-ADDR-CNTRY-CODE     PIC  X(03).          GU011D1C
+035200             15  NAU-PRI-ADDR-DLVRY-PNT      PIC  9(08).          GU011D1C
+035300             15  FILLER                      PIC  9(06).          K62251
+035400             15  FILLER                      PIC  9(06).          K62251
+035500             15  NAU-PRI-ADDR-FOREIGN-IND    PIC  X(01).          GU011D1C
+035600         10  NAU-PRIMARY-SALUTATION-TITLE    PIC  X(45).          GU011D1C
+035700         10  NAU-STMT-MAIL-ADDR-FOREIGN-IND  PIC  X(01).          GU011D1C
+035800         10  NAU-STMT-MAIL-CNTRY-CD          PIC  X(03).          GU011D1C
+035900         10  NAU-STMT-MAIL-DLVRY-PNT         PIC  9(08).          GU011D1C
+036000         10  NAU-TEMP-STMT-DATA-W.                                GU011D1C
+036100             15  FILLER                      PIC  X(01).          K62251
+036200             15  NAU-TEMP-STMT-DLVRY-PNT     PIC  9(08).          GU011D1C
+036300             15  FILLER                      PIC  9(06).          K62251
+036400             15  NAU-TEMP-STMT-FOREIGN-IND   PIC  X(01).          GU011D1C
+036500             15  FILLER                      PIC  X(01).          K62251
+036600             15  NAU-TEMP-STMT-CNTRY-CD      PIC  X(03).          GU011D1C
+036700         10  NAU-PHOTO-ID-HELD-IND-1         PIC  X(01).          GU011D1C
+036800         10  NAU-PHOTO-ID-HELD-IND-2         PIC  X(01).          GU011D1C
+036900         10  NAU-PHOTO-ID-HELD-IND-3         PIC  X(01).          GU011D1C
+037000         10  NAU-PHOTO-ID-HELD-IND-4         PIC  X(01).          GU011D1C
+037100         10  NAU-DATA-CLNSD-DATA.                                 GU011D1C
+037200             15  NAU-PHN-NBR-CLNSD-CD        PIC  X(01).          GU011D1C
+037300                 88  PHN-NBR-IN-CLNSD             VALUE '0'.      GU011D1C
+037400                 88  PHN-NBR-CLNSD-INVLD          VALUE 'I'.      GU011D1C
+037500                 88  PHN-NBR-CLNSD-VLD            VALUE 'V'.      GU011D1C
+037600                 88  PHN-NBR-SET-FOR-CLEANSING    VALUE 'M'.      GU011D1C
+037700             15  NAU-PHN-NBR-CLNSD-DT        PIC  S9(09)          GU011D1C
+037800                                           SIGN TRAILING SEPARATE.GU011D1C
+037900         10  NAU-LAST-NAME-CHANGE-DT         PIC S9(09)           GU011D1C
+038000                                           SIGN TRAILING SEPARATE.GU011D1C
+038100         10  NAU-NM1-MARITAL-STS-CD          PIC  X(01).          GU011D1C
+038200             88  NAU-NM1-MARITAL-STS-UNKNOWN      VALUE ' '.      GU011D1C
+038300             88  NAU-NM1-MARITAL-STS-MARRIED      VALUE 'M'.      GU011D1C
+038400             88  NAU-NM1-MARITAL-STS-SINGLE       VALUE 'S'.      GU011D1C
+038500         10  NAU-NM2-MARITAL-STS-CD          PIC  X(01).          GU011D1C
+038600             88  NAU-NM2-MARITAL-STS-UNKNOWN      VALUE ' '.      GU011D1C
+038700             88  NAU-NM2-MARITAL-STS-MARRIED      VALUE 'M'.      GU011D1C
+038800             88  NAU-NM2-MARITAL-STS-SINGLE       VALUE 'S'.      GU011D1C
+038900         10  NAU-NM3-MARITAL-STS-CD          PIC  X(01).          GU011D1C
+039000             88  NAU-NM3-MARITAL-STS-UNKNOWN      VALUE ' '.      GU011D1C
+039100             88  NAU-NM3-MARITAL-STS-MARRIED      VALUE 'M'.      GU011D1C
+039200             88  NAU-NM3-MARITAL-STS-SINGLE       VALUE 'S'.      GU011D1C
+039300         10  NAU-NM4-MARITAL-STS-CD          PIC  X(01).          GU011D1C
+039400             88  NAU-NM4-MARITAL-STS-UNKNOWN      VALUE ' '.      GU011D1C
+039500             88  NAU-NM4-MARITAL-STS-MARRIED      VALUE 'M'.      GU011D1C
+039600             88  NAU-NM4-MARITAL-STS-SINGLE       VALUE 'S'.      GU011D1C
+039700         10  NAU-NM2-NAME-ADDED-IND          PIC  X(01).          GU011D1C
+039800             88  NAU-NM2-NAME-ADDED               VALUE 'Y'.      GU011D1C
+039900             88  NAU-NM2-NAME-NOT-ADDED           VALUE ' '.      GU011D1C
+039902             88  NAU-NM2-NAME-DELETED             VALUE 'D'.      BAS4029A
+040000         10  NAU-NM3-NAME-ADDED-IND          PIC  X(01).          GU011D1C
+040100             88  NAU-NM3-NAME-ADDED               VALUE 'Y'.      GU011D1C
+040200             88  NAU-NM3-NAME-NOT-ADDED           VALUE ' '.      GU011D1C
+040202             88  NAU-NM3-NAME-DELETED             VALUE 'D'.      BAS4029A
+040300         10  NAU-NM4-NAME-ADDED-IND          PIC  X(01).          GU011D1C
+040400             88  NAU-NM4-NAME-ADDED               VALUE 'Y'.      GU011D1C
+040500             88  NAU-NM4-NAME-NOT-ADDED           VALUE ' '.      GU011D1C
+040502             88  NAU-NM4-NAME-DELETED             VALUE 'D'.      BAS4029A
+040600******************************************************************GU011D1C
+040700*DEL 040700,042000  >>>  THESE LINES WERE DELETED BY  >>>         K62251
+042100*                                                                 CCN234
+042110         07  NAU-USER-DATA.                                       CC1092
+042120             10  NAU-EXTERNAL-ID             PIC  X(08).          CC1092
+042130             10  NAU-BANKING-LOGON-NM-1      PIC  X(10).          CC1617
+042135             10  NAU-BANKING-LOGON-NM-2      PIC  X(10).          CC1617
+042140             10  NAU-BANKING-LOGON-NM-3      PIC  X(10).          CC1617
+042145             10  NAU-BANKING-LOGON-NM-4      PIC  X(10).          CC1617
+042150             10  NAU-PHOTO-REF-NBR-1X        PIC  X(22).          CC6024
+042160             10  NAU-PHOTO-REF-NBR-2X        PIC  X(22).          CC6024
+042170             10  NAU-PHOTO-REF-NBR-3X        PIC  X(22).          CC6024
+042192*                                                                 CC6024
+042193             10  FILLER                      PIC  X(51).          CC6024
+042194*                                                                 CC1617
+042196*                                                                 CC6024
+042198*                                                                 CC6024
+042200*                                                                 CC6024
+042202*                                                                 CC6024
+042210             10  NAU-ONLINE-SHOP-ID-NM-1     PIC  X(06).          CC1617
+042215             10  NAU-ONLINE-SHOP-ID-NM-2     PIC  X(06).          CC1617
+042220             10  NAU-ONLINE-SHOP-ID-NM-3     PIC  X(06).          CC1617
+042225             10  NAU-ONLINE-SHOP-ID-NM-4     PIC  X(06).          CC1617
+042230             10  NAU-PREV-ONLINE-SHOP-ID-NM-1 PIC X(06).          CC1617
+042235             10  NAU-PREV-ONLINE-SHOP-ID-NM-2 PIC X(06).          CC1617
+042240             10  NAU-PREV-ONLINE-SHOP-ID-NM-3 PIC X(06).          CC1617
+042245             10  NAU-PREV-ONLINE-SHOP-ID-NM-4 PIC X(06).          CC1617
+042250             10  NAU-NM1-REL-START-DT        PIC S9(09)           CC2459A
+042252                                           SIGN TRAILING SEPARATE.CC2459A
+042254             10  NAU-NM2-REL-START-DT        PIC S9(09)           CC2459A
+042256                                           SIGN TRAILING SEPARATE.CC2459A
+042258             10  NAU-NM3-REL-START-DT        PIC S9(09)           CC2459A
+042260                                           SIGN TRAILING SEPARATE.CC2459A
+042262             10  NAU-NM4-REL-START-DT        PIC S9(09)           CC2459A
+042264                                           SIGN TRAILING SEPARATE.CC2459A
+042266             10  NAU-CUST-CONTACT.                                CC4016
+042268                 15  NAU-PHONE-LAST-UPDT     PIC S9(09)           CC4016
+042270                                           SIGN TRAILING SEPARATE.CC4016
+042272                 15  NAU-BUS-PHONE-LAST-UPDT PIC S9(09)           CC4016
+042274                                           SIGN TRAILING SEPARATE.CC4016
+042276                 15  NAU-PHONE-3-LAST-UPDT   PIC S9(09)           CC4016
+042278                                           SIGN TRAILING SEPARATE.CC4016
+042280                 15  NAU-EMAIL-LAST-UPDT     PIC S9(09)           CC4016
+042282                                           SIGN TRAILING SEPARATE.CC4016
+042290             10  NAU-EMAIL-IRREG-IND         PIC  X(01).          CC4755A
+042295             10  NAU-EMAIL-IRREG-CHG-DT      PIC S9(09)           CC4755A
+042297                                           SIGN TRAILING SEPARATE.CC4755A
+042300             10  NAU-LOYALTY-CID.                                 CC5814
+042305                 15 NAU-LOYALTY-CID-FILE-ID   PIC  X(01).         CC5814
+042310                 15 NAU-LOYALTY-CID-SYSTEM-ID PIC  X(03).         CC5814
+042315                 15 NAU-LOYALTY-CID-SEG-ID    PIC  X(02).         CC5814
+042320                 15 NAU-LOYALTY-CID-CREATE-DT PIC  X(05).         CC5814
+042325                 15 NAU-LOYALTY-CID-SEQ-NUM   PIC  X(09).         CC5814
+042327                 15 FILLER                    PIC  X(08).         CC5814
+042330             10  NAU-HOME-CONTACT-CONSENT.                        CC6026
+042335                 15  NAU-HOME-PHONE-TYPE      PIC  X(01).         CC6026
+042340                 15  NAU-HOME-CONSENT-TYP     PIC  X(01).         CC6026
+042345                 15  NAU-HOME-CONSENT-DT      PIC S9(09)          CC6026
+042350                                           SIGN TRAILING SEPARATE.CC6026
+042355                 15  NAU-HOME-CHECK-DT        PIC S9(09)          CC6026
+042360                                           SIGN TRAILING SEPARATE.CC6026
+042365                 15  NAU-HOME-VER-CDE         PIC  X(01).         CC6026
+042370                 15  NAU-HOME-DIALER          PIC  X(01).         CC6026
+042375             10  NAU-BUSINESS-CONTACT-CONSENT.                    CC6026
+042380                 15  NAU-BUSI-PHONE-TYPE      PIC  X(01).         CC6026
+042385                 15  NAU-BUSI-CONSENT-TYP     PIC  X(01).         CC6026
+042390                 15  NAU-BUSI-CONSENT-DT      PIC S9(09)          CC6026
+042395                                           SIGN TRAILING SEPARATE.CC6026
+042396*                                                                 CC4755A
+042400                 15  NAU-BUSI-CHECK-DT        PIC S9(09)          CC6026
+042405                                           SIGN TRAILING SEPARATE.CC6026
+042410                 15  NAU-BUSI-VER-CDE         PIC  X(01).         CC6026
+042415                 15  NAU-BUSI-DIALER          PIC  X(01).         CC6026
+042420             10  NAU-PHONE3-CONTACT-CONSENT.                      CC6026
+042425                 15  NAU-PHONE3-PHONE-TYPE    PIC  X(01).         CC6026
+042430                 15  NAU-PHONE3-CONSENT-TYP   PIC  X(01).         CC6026
+042435                 15  NAU-PHONE3-CONSENT-DT    PIC S9(09)          CC6026
+042440                                           SIGN TRAILING SEPARATE.CC6026
+042445                 15  NAU-PHONE3-CHECK-DT      PIC S9(09)          CC6026
+042450                                           SIGN TRAILING SEPARATE.CC6026
+042455                 15  NAU-PHONE3-VER-CDE       PIC  X(01).         CC6026
+042460                 15  NAU-PHONE3-DIALER        PIC  X(01).         CC6026
+042465             10  NAU-CCARD-CONTACT-CONSENT.                       CC6026
+042470                 15  NAU-CCARD-PHONE-TYPE     PIC  X(01).         CC6026
+042475                 15  NAU-CCARD-CONSENT-TYP    PIC X(01).          CC6026
+042480                 15  NAU-CCARD-CONSENT-DT     PIC S9(09)          CC6026
+042485                                           SIGN TRAILING SEPARATE.CC6026
+042490                 15  NAU-CCARD-CHECK-DT       PIC S9(09)          CC6026
+042495                                           SIGN TRAILING SEPARATE.CC6026
+042500                 15  NAU-CCARD-VER-CDE        PIC  X(01).         CC6026
+042505                 15  NAU-CCARD-DIALER         PIC  X(01).         CC6026
+042510             10  NAU-EMAIL-CONSENT.                               CC6026
+042515                 15  NAU-EMAIL-CONSENT-TYP    PIC  X(01).         CC6026
+042520                 15  NAU-EMAIL-CONSENT-DT     PIC S9(09)          CC6026
+042525                                           SIGN TRAILING SEPARATE.CC6026
+042530             10  NAU-TEMP-EMAIL-CONSENT.                          CC6026
+042535                 15  NAU-TEMP-EMAIL-CONSENT-TYP PIC  X(01).       CC6026
+042540                 15  NAU-TEMP-EMAIL-CONSENT-DT  PIC S9(09)        CC6026
+042545                                           SIGN TRAILING SEPARATE.CC6026
+042600*                                                                 CC4755A
+042605             10  NAU-PHOTO-REF-NBR-4X        PIC  X(22).          CC6024
+042630             10  NAU-EMAIL-NM2               PIC  X(70).          CC6242
+042635             10  NAU-EMAIL-NM3               PIC  X(70).          CC6242
+042640             10  NAU-EMAIL-NM4               PIC  X(70).          CC6242
+042645             10  NAU-ACCESS-CD               PIC  X(12).          CC5964
+042650             10  NAU-CELL-PHONE-NUMBERS.                          CC6483
+042652                 15  NAU-CELL-PHONE-NM1       PIC  X(16).         CC6483
+042654                 15  NAU-CELL-PHONE-NM2       PIC  X(16).         CC6483
+042656                 15  NAU-CELL-PHONE-NM3       PIC  X(16).         CC6483
+042658                 15  NAU-CELL-PHONE-NM4       PIC  X(16).         CC6483
+042660             10  NAU-STMT-DELV-OPT-CHG-DT     PIC S9(09)          CC6483
+042662                                           SIGN TRAILING SEPARATE.CC6483
+042700*                                                                 CC4755A
+042800             10  FILLER                      PIC  X(50).          CC6483
+999600*                                                                 CC4755
+999700******************************************************************CC4755
+999800*********               END OF GU011D1C COPYBOOK         *********CC4755
+999900******************************************************************CC4755

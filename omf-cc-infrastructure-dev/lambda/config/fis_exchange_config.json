@@ -1,0 +1,28 @@
+{
+  "append_datetime": false,
+  "source_prefix_filter": "prepared",
+  "destination_prefix": "FIS/TO-BE-PROCESSED",
+  "comments" : "destination_bucket: somename - not an option",
+  "copy_options": [
+    {
+      "source_prefix_filter": "prepared/cardholder_master",
+      "destination_prefix": "FIS/CARDHOLDER_MASTER/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/nameaddress",
+      "destination_prefix": "FIS/NAME_ADDRESS/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/paymentallocation",
+      "destination_prefix": "FIS/PAYMENT_ALLOCATION/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/posteditems",
+      "destination_prefix": "FIS/POSTED_ITEMS/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/cardholder_plan",
+      "destination_prefix": "FIS/CARDHOLDER_PLAN/TO-BE-PROCESSED"
+    }
+  ]
+}

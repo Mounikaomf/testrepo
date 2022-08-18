@@ -1,0 +1,6 @@
+       01  BCMU-RECORD-H.
+           05  BCMU-CORPORATION-NUMBER  PIC X(2).
+           05  BCMU-ACCOUNT-NO1         PIC X(16).
+           05  BCMU-CORPORATION-ID      PIC X(8).
+           05  FILE_DT           PIC 9(8).	
+           05  FILLER                   PIC X(8966).	

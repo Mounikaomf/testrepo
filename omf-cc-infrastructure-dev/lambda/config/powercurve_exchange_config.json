@@ -1,0 +1,68 @@
+{
+  "append_datetime": false,
+  "source_prefix_filter": "prepared",
+  "destination_prefix": "PCO",
+  "comments" : "destination_bucket: somename - not an option",
+  "copy_options": [
+    {
+      "source_prefix_filter": "prepared/applicant",
+      "destination_prefix": "PCO/applicant/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/bureaudata",
+      "destination_prefix": "PCO/bureaudata/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/premiers1",
+      "destination_prefix": "PCO/premiers1/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/premiers2",
+      "destination_prefix": "PCO/premiers2/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/errors",
+      "destination_prefix": "PCO/errors/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/luminate",
+      "destination_prefix": "PCO/luminate/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/application",
+      "destination_prefix": "PCO/application/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/finaldecresults",
+      "destination_prefix": "PCO/finaldecresults/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/finaldecsystem",
+      "destination_prefix": "PCO/finaldecsystem/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/postbureauomsystem",
+      "destination_prefix": "PCO/postbureauomsystem/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/postbureauxsresults",
+      "destination_prefix": "PCO/postbureauxsresults/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/postbureauxssystem",
+      "destination_prefix": "PCO/postbureauxssystem/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/prebureauresults",
+      "destination_prefix": "PCO/prebureauresults/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/postbureauomresults",
+      "destination_prefix": "PCO/postbureauomresults/TO-BE-PROCESSED"
+    },
+    {
+      "source_prefix_filter": "prepared/prebureausystem",
+      "destination_prefix": "PCO/prebureausystem/TO-BE-PROCESSED"
+    }
+  ]
+}

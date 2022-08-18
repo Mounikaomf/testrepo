@@ -1,0 +1,92 @@
+{
+  "columns": [
+    {
+      "final_name" : "meta.messageId",
+      "generate" : "uuid"
+    },
+    {
+      "final_name" : "meta.time",
+      "generate" : "timestamp"
+    },
+    {
+      "final_name" : "meta.source",
+      "default_value" : "omf.datalake.bnf.glue"
+    },
+    {
+      "final_name" : "meta.messageType",
+      "default_value" : "omf.datalake.bnf_record"
+    },
+    {
+      "final_name" : "meta.version",
+      "default_value" : "2.0"
+    },
+    {
+      "name" : "CONTACT_URN",
+      "final_name" : "data.pqCode"
+    },
+    {
+      "name" : "CELL_KEY",
+      "final_name" : "data.prospectOfferCode"
+    },
+    {
+      "name" : "CAMPAIGN_KEY",
+      "final_name" : "data.marketingCampaignId"
+    },
+    {
+      "name" : "OFFER_AMT",
+      "final_name" : "data.offerAmount"
+    },
+    {
+      "name" : "APR",
+      "final_name" : "data.apr",
+      "data_type" : "float"
+    },
+    {
+      "name" : "CUSTOMER_TYPE",
+      "final_name" : "data.customerType"
+    },
+    {
+      "name" : "FST_NAME",
+      "final_name" : "data.personalInfo.firstName"
+    },
+    {
+      "name" : "LST_NAME",
+      "final_name" : "data.personalInfo.lastName"
+    },
+    {
+      "name" : "ADDRESS_LINE_1",
+      "final_name" : "data.personalInfo.residentialAddress.street_address_1"
+    },
+    {
+      "name" : "ADDRESS_LINE_2",
+      "final_name" : "data.personalInfo.residentialAddress.street_address_2"
+    },
+    {
+      "name" : "CITY_NAME",
+      "final_name" : "data.personalInfo.residentialAddress.city"
+    },
+    {
+      "name" : "STATE_PROVINCE_CD",
+      "final_name" : "data.personalInfo.residentialAddress.state"
+    },
+    {
+      "name" : "POSTAL_CD",
+      "final_name" : "data.personalInfo.residentialAddress.zip"
+    },
+    {
+      "name" : "HOME_TELEPHONE_NUMBER",
+      "final_name" : "data.personalInfo.phoneNumber"
+    },
+    {
+      "name" : "SSN_LAST_4",
+      "final_name" : "data.personalInfo.last4Ssn"
+    },
+    {
+      "name" : "EXPIRATION_DATE",
+      "final_name" : "data.expireDate",
+      "data_type" : "date",
+      "format" : "%Y%M%d",
+      "final_format" : "%Y-%M-%d"
+    }
+  ]
+}

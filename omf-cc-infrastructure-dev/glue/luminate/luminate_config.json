@@ -1,0 +1,20 @@
+{
+  "mapping": [
+    {
+      "key": "ADR",
+      "value": "applicant_address"
+    },
+    {
+      "key": "EML",
+      "value": "applicant_email"
+    },
+    {
+      "key": "PHN",
+      "value": "applicant_contact_number"
+    },
+   {
+      "key": "SSN",
+      "value": "applicant_identifier"
+    }
+  ]
+}

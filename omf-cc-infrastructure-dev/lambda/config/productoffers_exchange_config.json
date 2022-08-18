@@ -1,0 +1,24 @@
+{
+    "append_datetime": false,
+    "source_prefix_filter": "prepared",
+    "destination_prefix": "PRODUCTOFFERS/TO-BE-PROCESSED",
+    "comments" : "destination_bucket: somename - not an option",
+    "copy_options": [
+      {
+        "source_prefix_filter": "prepared/application",
+        "destination_prefix": "PRODUCTOFFERS/APPLICATION/TO-BE-PROCESSED"
+      },
+      {
+        "source_prefix_filter": "prepared/offer",
+        "destination_prefix": "PRODUCTOFFERS/OFFER/TO-BE-PROCESSED"
+      },
+      {
+        "source_prefix_filter": "prepared/decision",
+        "destination_prefix": "PRODUCTOFFERS/DECISION/TO-BE-PROCESSED"
+      },
+      {
+        "source_prefix_filter": "prepared/remove",
+        "destination_prefix": "PRODUCTOFFERS/REMOVE/TO-BE-PROCESSED"
+      }
+    ]
+  }

@@ -1,0 +1,5 @@
+       01  GU052D1C-RECORD-H.
+           05  GU052D1C-CORPORATION-NUMBER  PIC X(2).
+           05  GU052D1C-ACCOUNT-NO1         PIC X(16).
+           05  FILE_DT           PIC 9(8).
+           05  FILLER                       PIC X(524).
