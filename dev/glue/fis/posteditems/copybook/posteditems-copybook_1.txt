@@ -1,0 +1,443 @@
+000100*R K62251
+000200*  POSTED ITEM TRAN REC                         QSAM F  660 00000 GU050D1C
+000300***************************************************************** GU050D1C
+000400*                                                               * GU050D1C
+000500* GU050D1C  - POSTED ITEM RECORD - TRANSACTION RECORD.          * GU050D1C
+000600*                                                               * GU050D1C
+000700* THIS IS THE STANDARD TRANSACTION RECORD OF THE POSTED ITEM    * GU050D1C
+000800* FILE.                                                         * GU050D1C
+000900*                                                               * GU050D1C
+001000* IF ANY VARIABLE DATA IS IN THE POSTED ITEM RECORD, IT WILL    * GU050D1C
+001100* FOLLOW THE STANDARD DATA.  THE SEGMENTS OF VARIABLE DATA      * GU050D1C
+001200* ARE DEFINED EXPLICITLY, OR ANOTHER COPYBOOK REFERENCE IS      * GU050D1C
+001300* PROVIDED, IN COPYBOOK BCPIHSST.                               * GU050D1C
+001400*                                                               * GU050D1C
+001500***************************************************************** GU050D1C
+001600*01  POSTED-ITEM-RECORD.                                          GU050D1C
+001700     05  PIRU-KEY.                                                GU050D1C
+002700         10  PIRU-MAJOR-KEY.                                      GU050D1C
+002800             15  PIRU-CORP                 PIC  X(02).            GU050D1C
+002900             15  PIRU-ACCOUNT              PIC  X(16).            GU050D1C
+003000         10  FILLER                        PIC  X(01).            GU050D1C
+003100         10  PIRU-DT                       PIC S9(09)             GU050D1C
+003200                                           SIGN TRAILING SEPARATE.GU050D1C
+003300         10  PIRU-TIE-BREAKER              PIC S9(04)             GU050D1C
+003400                                           SIGN TRAILING SEPARATE.GU050D1C
+003500*                                                                 GU050D1C
+003600     05  PIRU-NON-KEY-DATA.                                       GU050D1C
+003700         10  PIRU-BODY.                                           GU050D1C
+003800             15  PIRU-TRANS-CODE           PIC S9(03)             GU050D1C
+003900                                           SIGN TRAILING SEPARATE.GU050D1C
+004000             15  PIRU-REASON               PIC  X(02).            GU050D1C
+004100                 88  PIRU-PURCHASE                                GU050D1C
+004200                               VALUES ARE '00' THRU '19'          GU050D1C
+004300                                          '50' THRU '69'.         GU050D1C
+004400                 88  PIRU-CASH                                    GU050D1C
+004500                               VALUES ARE '20' THRU '39'          GU050D1C
+004600                                          '70' THRU '89'.         GU050D1C
+004700             15  PIRU-CARD-TYPE            PIC  X(01).            GU050D1C
+004800             15  PIRU-POST-FLAG            PIC  X(01).            GU050D1C
+004900             15  PIRU-POST-DT              PIC S9(09)             GU050D1C
+005000                                           SIGN TRAILING SEPARATE.GU050D1C
+005100             15  PIRU-PURCH-DT             PIC S9(09)             GU050D1C
+005200                                           SIGN TRAILING SEPARATE.GU050D1C
+005600*                                                                 GU050D1C
+005700*                                                                 GU050D1C
+005800*                                                                 GU050D1C
+005900***************************************************************** GU050D1C
+006000*                                                               * GU050D1C
+006100* PIR-PROC-TRANS-AMT IS THE PROCESSING TRANSACTION AMOUNT WHICH * GU050D1C
+006200* WILL REPRESENT THE AMOUNT OF THE TRANSACTION EXPRESSED IN     * GU050D1C
+006300* LOCAL CURRENCY.  THIS IS THE AMOUNT POSTED TO THE CARDHOLDER  * GU050D1C
+006400* ACCOUNT.  IT IS STORED AS 9(XX)V99 REGARDLESS OF THE EXPONENT * GU050D1C
+006500* OF THE LOCAL CURRENCY, IN KEEPING WITH THE PHILOSOPHY OF THE  * GU050D1C
+006600* INTERNATIONAL VERSION OF THE SYSTEM.  IT IS FILLED IN BY      * GU050D1C
+006700* THE VARIOUS INCOMING INTERCHANGE PROGRAMS AS FOLLOWS:         * GU050D1C
+006800*    VISA - IF 'DESTINATION AMOUNT' IS IN THE LOCAL             * GU050D1C
+006900*           CURRENCY, USE 'DESTINATION AMOUNT'.  OTHERWISE,     * GU050D1C
+007000*           CONVERT 'SOURCE AMOUNT' TO LOCAL CURRENCY USING     * GU050D1C
+007100*           THE APPROPRIATE RATE, UNLESS 'SOURCE AMOUNT' IS     * GU050D1C
+007200*           ALREADY IN LOCAL CURRENCY.                          * GU050D1C
+007300*    MASTERCARD - FROM 'ISSUER AMOUNT'                          * GU050D1C
+007400*    EUROPAY - IF 'AMOUNT TRANSACTION' IS IN THE LOCAL CURRENCY,* GU050D1C
+007500*              USE 'AMOUNT TRANSACTION'.  OTHERWISE, CONVERT    * GU050D1C
+007600*              'AMOUNT TRANSACTON' TO LOCAL CURRENCY USING      * GU050D1C
+007700*              THE APPROPRIATE RATE.                            * GU050D1C
+007800*                                                               * GU050D1C
+007900***************************************************************** GU050D1C
+008000*                                                                 GU050D1C
+008100             15  PIRU-AMT                  PIC S9(11)V99          GU050D1C
+008200                                           SIGN TRAILING SEPARATE.GU050D1C
+008300*                                                                 GU050D1C
+008800*                                                                 GU050D1C
+008900***************************************************************** GU050D1C
+009000*                                                               * GU050D1C
+009100* THE FOLLOWING FIELDS ARE THE AMOUNT, CURRENCY CODE AND        * GU050D1C
+009200* CURRENCY EXPONENT OF THE ORIGINAL (AKA SOURCE) TRANSACTION.   * GU050D1C
+009300* THE AMOUNT WILL BE MAINTAINED AS A WHOLE INTEGER VALUE.  THE  * GU050D1C
+009400* CURRENCY EXPONENT WILL DETERMINE HOW TO FORMAT THE AMOUNT     * GU050D1C
+009500* FIELD.  THESE FIELDS ARE FILLED IN BY THE VARIOUS INCOMING    * GU050D1C
+009600* INTERCHANGE PROGRAMS AS FOLLOWS:                              * GU050D1C
+009700*     VISA - FROM 'SOURCE AMOUNT' FIELDS                        * GU050D1C
+009800*     MASTERCARD - FROM 'TRANSACTION AMOUNT' FIELDS             * GU050D1C
+009900*     EUROPAY - FROM 'AMOUNT TRANSACTION' FIELDS                * GU050D1C
+010000*                                                               * GU050D1C
+010100***************************************************************** GU050D1C
+010200*                                                                 GU050D1C
+010300             15  PIRU-ORIG-TRANS-AMT       PIC S9(12)             GU050D1C
+010400                                           SIGN TRAILING SEPARATE.GU050D1C
+011100             15  PIRU-ORIG-CURR-CODE       PIC X(03).             GU050D1C
+011400             15  PIRU-ORIG-CURR-EXP        PIC X(01).             GU050D1C
+011700*                                                                 GU050D1C
+011800***************************************************************** GU050D1C
+011900*                                                               * GU050D1C
+012000* THE FOLLOWING FIELDS ARE THE AMOUNT, CURRENCY CODE AND        * GU050D1C
+012100* CURRENCY EXPONENT OF THE SETTLEMENT AMOUNT.  THE AMOUNT WILL  * GU050D1C
+012200* BE MAINTAINED AS A WHOLE INTEGER VALUE.  THIS AMOUNT MAY OR   * GU050D1C
+012300* MAY NOT BE IN THE ISSUER'S LOCAL CURRENCY.  THE CURRENCY      * GU050D1C
+012400* EXPONENT WILL DETERMINE HOW TO FORMAT THE AMOUNT FIELD.       * GU050D1C
+012500* THESE FIELDS ARE FILLED IN BY THE VARIOUS INCOMING INTERCHANGE* GU050D1C
+012600* PROGRAMS AS FOLLOWS:                                          * GU050D1C
+012700*     VISA - FROM 'DESTINATION AMOUNT' FIELDS                   * GU050D1C
+012800*     MASTERCARD - FROM 'SETTLEMENT AMOUNT' FIELDS              * GU050D1C
+012900*     EUROPAY - FROM 'RECONCILIATION AMOUNT' FIELDS             * GU050D1C
+013000*                                                               * GU050D1C
+013100***************************************************************** GU050D1C
+013200*                                                                 GU050D1C
+013300             15  PIRU-DEST-TRANS-AMT       PIC S9(12)             GU050D1C
+013400                                           SIGN TRAILING SEPARATE.GU050D1C
+014100             15  PIRU-DEST-CURR-CODE       PIC X(03).             GU050D1C
+014400             15  PIRU-DEST-CURR-EXP        PIC X(01).             GU050D1C
+014700*                                                                 GU050D1C
+014800***************************************************************** GU050D1C
+014900*                                                               * GU050D1C
+015000* THE FOLLOWING FIELDS ARE THE AMOUNT, CURRENCY CODE AND        * GU050D1C
+015100* CURRENCY EXPONENT OF THE ISSUER AMOUNT, OR THE AMOUNT OF THE  * GU050D1C
+015200* TRANSACTION IN LOCAL CURRENCY.  THE AMOUNT WILL BE MAINTAINED * GU050D1C
+015300* AS A WHOLE INTEGER AMOUNT.  THE CURRENCY EXPONENT WILL        * GU050D1C
+015400* DETERMINE HOW TO FORMAT THE AMOUNT FIELD.  THESE FIELDS ARE   * GU050D1C
+015500* FILLED IN BY THE VARIOUS INCOMING INTERCHANGE PROGRAMS AS     * GU050D1C
+015600* FOLLOWS:                                                      * GU050D1C
+015700*     VISA - ZEROS AND SPACES                                   * GU050D1C
+015800*     MASTERCARD - FROM 'ISSUER AMOUNT' FIELDS                  * GU050D1C
+015900*     EUROPAY - FROM 'CARDHOLDER AMOUNT' FIELDS                 * GU050D1C
+016000*                                                               * GU050D1C
+016100***************************************************************** GU050D1C
+016200*                                                                 GU050D1C
+016300             15  PIRU-ISSUER-TRANS-AMT   PIC S9(12)               GU050D1C
+016400                                           SIGN TRAILING SEPARATE.GU050D1C
+016800             15  PIRU-ISSUER-CURR-CODE   PIC X(03).               GU050D1C
+017100             15  PIRU-ISSUER-CURR-EXP    PIC X(01).               GU050D1C
+017400*                                                                 GU050D1C
+017500             15  PIRU-CURR-CONV-DATE     PIC 9(04).               GU050D1C
+017600*                                                                 GU050D1C
+017700             15  PIRU-REF-NO               PIC  X(23).            GU050D1C
+017800             15  PIRU-REF-NO-REDEF REDEFINES PIRU-REF-NO.         GU050D1C
+017900                 20  PIRU-REF-FORMAT       PIC  X(01).            GU050D1C
+018000                 20  PIRU-REF-BIN          PIC  X(06).            GU050D1C
+018100                 20  PIRU-REF-INTCHG-DATE  PIC  X(04).            GU050D1C
+018200                 20  PIRU-REF-CAPTURE-SHOP PIC  X(03).            GU050D1C
+018300                 20  PIRU-REF-DATE         PIC  X(03).            GU050D1C
+018400                 20  PIRU-REF-SEQ-FILLER   PIC  X(01).            GU050D1C
+018500                 20  PIRU-REF-TRAN-CODE    PIC X(02).             GU050D1C
+018600                 20  PIRU-REF-REASON-CODE  PIC X(02).             GU050D1C
+018700                 20  PIRU-REF-CHK-DIGIT    PIC X(01).             GU050D1C
+018800*                                                                 GU050D1C
+018900             15  PIRU-MRCH-CLASS.                                 GU050D1C
+019000                 20  PIRU-MSG-NO           PIC 9(02).             GU050D1C
+019300                 20  FILLER                PIC X(02).             GU050D1C
+019400             15  PIRU-SIC-CODE REDEFINES                          GU050D1C
+019500                 PIRU-MRCH-CLASS           PIC X(04).             GU050D1C
+019600*                                                                 GU050D1C
+020600             15  PIRU-MERCH-DESC.                                 GU050D1C
+020700                 20  PIRU-MERCHANT-NAME      PIC X(25).           GU050D1C
+020800                 20  PIRU-MERCHANT-CITY-ST.                       GU050D1C
+020900                     25  PIRU-MERCHANT-CITY      PIC X(13).       GU050D1C
+021000                     25  PIRU-MERCHANT-STATE-PROV PIC X(03).      GU050D1C
+022000*                                                                 GU050D1C
+022100             15  PIRU-AUTH-SOURCE      PIC  X(01).                GU050D1C
+022200*                                                                 GU050D1C
+022300             15  PIRU-ATM-IND              PIC  X(01).            GU050D1C
+022400             15  PIRU-REIMB-ATTR           PIC  X(01).            GU050D1C
+022500             15  PIRU-MC-TRANS-TYPE        PIC  X(02).            GU050D1C
+022600*                                                                 GU050D1C
+022700                 88  PIRU-MC-RETAIL-SALE   VALUE '00'.            GU050D1C
+022800                 88  PIRU-MC-CREDIT        VALUE '20'.            GU050D1C
+022900                 88  PIRU-MC-PAYMENT-TRAN  VALUE '28'.            GU050D1C
+023000                 88  PIRU-MC-CASH-ADVANCE  VALUE '12'.            GU050D1C
+023100                 88  PIRU-MC-UNIQUE        VALUE '18'.            GU050D1C
+023200                 88  PIRU-MC-ATM-CASH-DISBURSEMENT VALUE '01'.    GU050D1C
+023205                 88  PIRU-MC-ATM-BAL-INQ    VALUE '30'.           B104423
+023210                 88  PIRU-MC-ATM-PIN-UNBLK  VALUE '91'.           B104423
+023215                 88  PIRU-MC-ATM-PIN-RESET  VALUE '92'.           B104423
+024200*                                                                 GU050D1C
+024300         10  PIRU-ORIG-CARD-CODE           PIC  X(01).            GU050D1C
+024400         10  PIRU-CAFEE-AMT                PIC S9(05)V99          GU050D1C
+024500                                           SIGN TRAILING SEPARATE.GU050D1C
+024600         10  PIRU-CARD-CODE                PIC  X(01).            GU050D1C
+024700*                                                                 GU050D1C
+024800         10  PIRU-VISA-RESERVE-1.                                 GU050D1C
+024900             15  PIRU-MAIL-PHONE-IND       PIC  X(01).            GU050D1C
+025000*                                                                 GU050D1C
+025100         10  PIRU-INTCHG-INFO.                                    GU050D1C
+025200             15  PIRU-MERCHANT-COUNTRY-CODE PIC X(03).            GU050D1C
+025300             15  PIRU-INTERFACE-TRACE-NO   PIC X(06).             GU050D1C
+025400             15  PIRU-CHIP-COND-CODE       PIC X(01).             GU050D1C
+025500             15  PIRU-FLOOR-LIMIT-IND      PIC X(01).             GU050D1C
+025600             15  PIRU-CWB-CRB-IND          PIC X(01).             GU050D1C
+025700         10  PIRU-QSET-INFO REDEFINES  PIRU-INTCHG-INFO.          GU050D1C
+025800             15  PIRU-QUAL-SET-NAME        PIC X(10).             GU050D1C
+025900             15  PIRU-QS-GEN-TRAN-IND      PIC X(02).             GU050D1C
+026000                 88  PIRU-QS-GENERATED-TRAN  VALUE 'GT'.          GU050D1C
+026100*                                                                 GU050D1C
+026200         10  PIRU-LCS-IND                  PIC  X(01).            GU050D1C
+026300         10  PIRU-SPEC-COND-IND.                                  GU050D1C
+026500             15  PIRU-SPEC-COND-1          PIC  X(01).            GU050D1C
+026600             15  PIRU-SPEC-COND-2          PIC  X(01).            GU050D1C
+026700         10  PIRU-SPEC-CB-IND              PIC  X(01).            GU050D1C
+026800*                                                                 GU050D1C
+026900         10  PIRU-ACQUIRER-MEMBER-ID       PIC  9(08).            GU050D1C
+027000*                                                                 GU050D1C
+027100         10  PIRU-NEW-TCR1-DATA.                                  GU050D1C
+027200             15  PIRU-ATM-ACCT-SELECTION   PIC  X(01).            GU050D1C
+027300             15  PIRU-ORIG-CENTRL-PROC-DT  PIC  9(04).            GU050D1C
+027400         10  PIRU-PAYMENT-SERVICE-IND      PIC  X(01).            GU050D1C
+027500         10  PIRU-AUTH-NUM                 PIC  X(06).            GU050D1C
+027600         10  PIRU-CARD-ACCEPTOR-ID         PIC  X(15).            GU050D1C
+027700*                                                                 GU050D1C
+027800         10  PIRU-INTERNAL-TRAN-DATA.                             GU050D1C
+027900             15  PIRU-ACCRUE-INTEREST-IND  PIC  X(01).            GU050D1C
+028000                 88  PIRU-ACCRUE                VALUE 'Y'.        GU050D1C
+028100                 88  PIRU-DO-NOT-ACCRUE         VALUE 'N'.        GU050D1C
+028200                 88  PIRU-EXCLUDE-CURR-CYC      VALUE 'X'.        GU050D1C
+028300             15  PIRU-TRAN-INIT-ACCR       PIC  X(01).            GU050D1C
+028400                 88  PIRU-CONVERSION-TRAN       VALUE 'C'.        GU050D1C
+028500                 88  PIRU-ACCRUE-FROM-POST-DATE VALUE 'P'.        GU050D1C
+028600                 88  PIRU-ACCRUE-FROM-TRAN-DATE VALUE 'T'.        GU050D1C
+028700                 88  PIRU-ACCRUE-FROM-BEG-CYCLE VALUE 'B'.        GU050D1C
+028705             15  PIRU-EXCPTNS-ELIGIBILITY      PIC  X(01).        B213265
+028710                 88  PIRU-NOT-ELIG-FOR-RTRVL    VALUE 'N'.        B103265
+028715                 88  PIRU-NOT-ELIG-FOR-CHGBK    VALUE 'C'.        B213265
+028720                 88  PIRU-NOT-ELIG-FOR-CHGBK-RTRVL VALUE 'B'.     SAN3464
+028800*                                                                 B103265
+028900*                                                                 GU050D1C
+029000*                                                                 GU050D1C
+029100*                                                                 GU050D1C
+029200             15  PIRU-AGGR-EFF-DT          PIC S9(09)             GU050D1C
+029300                                           SIGN TRAILING SEPARATE.GU050D1C
+029400             15  PIRU-ONLINE-MON-IND       PIC  X(02).            GU050D1C
+029500                 88  PIRU-TRAN-ADJ              VALUE 'T+' 'T-'.  GU050D1C
+029600                 88  PIRU-TRAN-ADJ-POS-ADJ      VALUE 'T+'.       GU050D1C
+029700                 88  PIRU-TRAN-ADJ-NEG-ADJ      VALUE 'T-'.       GU050D1C
+029800                 88  PIRU-TRAN-REVERSAL         VALUE 'TN' 'TP'.  GU050D1C
+029900                 88  PIRU-TRAN-ADJ-RVS-NO-PRINT VALUE 'TN'.       GU050D1C
+030000                 88  PIRU-TRAN-ADJ-RVS-PRINT    VALUE 'TP'.       GU050D1C
+030100                 88  PIRU-TRAN-ADJ-DISPUTE      VALUE 'DD'.       GU050D1C
+030200                 88  PIRU-TRAN-ADJ-DISP-RSLV    VALUE 'DR'.       GU050D1C
+030300                 88  PIRU-ONLINE-MON-TRAN       VALUE 'OM'.       GU050D1C
+030400                 88  PIRU-NOT-ONLINE-MON        VALUE '  '.       GU050D1C
+030500*  THE FOLLOWING 88 LEVEL REPRESENTS A RECORD CREATED VIA THE     GU050D1C
+030600*   EXCEPTIONS INTERCHANGE DATA SCREEN.                           GU050D1C
+030700                 88  PIRU-CREATED-BY-ID         VALUE 'ID'.       GU050D1C
+030800*                                                                 GU050D1C
+030900         10  PIRU-POS-ENTRY-MODE           PIC  X(02).            GU050D1C
+031000         10  PIRU-CASH-BACK-AMT            PIC  S9(07)V99         GU050D1C
+031100                                           SIGN TRAILING SEPARATE.GU050D1C
+031200         10  PIRU-MSG90-OPT-REQ-IND        PIC  X(01).            GU050D1C
+031300             88  PIRU-MSG90-REQ            VALUE ' '.             GU050D1C
+031400             88  PIRU-MSG90-OPT            VALUE 'O'.             GU050D1C
+031410         10  FILLER REDEFINES PIRU-MSG90-OPT-REQ-IND.             PL48682 
+031412           15  PIRU-PAYMENT-CATEGORY        PIC  X(01).           PL48682 
+031413             88  PIRU-UNRECOGNIZED-PYMT-CAT VALUE ' '.            BAS4254A
+031414             88  PIRU-MC-PERSON-TO-PERSON   VALUE '1'.            PL48682
+031416             88  PIRU-MC-REBATE             VALUE '2'.            PL48682
+031418             88  PIRU-MC-LOAD-VALUE         VALUE '3'.            PL48682
+031420             88  PIRU-MC-GAMBLING-REPAY     VALUE '4'.            PL48682
+031422             88  PIRU-MC-PAYMENT-TRANS-OTH  VALUE '5'.            PL48682
+031424             88  PIRU-MC-CARD-PMT-CASH-CHCK VALUE '6'.            PL48682
+031426             88  PIRU-MC-MONEYSEND          VALUE '7'.            PL48682
+031500         10  PIRU-MSG90-LOCATION           PIC  X(02).            GU050D1C
+031600             88  PIRU-MSG90-TOP            VALUE 'T '.            GU050D1C
+031700             88  PIRU-MSG90-BOTTOM         VALUE 'B '.            GU050D1C
+031702             88  PIRU-MSG90-ADV-TOP        VALUE 'T0' THRU 'T9'.  CC6178
+031704             88  PIRU-MSG90-ADV-CENTER     VALUE 'C0' 'C1'.       CC6178
+031706             88  PIRU-MSG90-ADV-LEFT       VALUE 'L0' THRU 'L9'.  CC6178
+031708             88  PIRU-MSG90-ADV-RIGHT      VALUE 'R0' THRU 'R9'.  CC6178
+031709             88  PIRU-MSG90-SORT           VALUE 'S0' THRU 'S2'.  CC6178
+031710*                                                                 PL48682
+031756*                                                                 PL48682
+031800         10  PIRU-MESSAGE-PITCH-TYPE       PIC  X(02).            GU050D1C
+032200         10  PIRU-TERMINAL-CATEGORY        PIC  X(01).            GU050D1C
+032300         10  PIRU-DISPUTE-OPTION REDEFINES                        GU050D1C
+032400             PIRU-TERMINAL-CATEGORY        PIC X(01).             GU050D1C
+032500         10  PIRU-REQUESTED-PMT-SVC        PIC X(01).             GU050D1C
+032600         10  PIRU-RESOLUTION-TYPE REDEFINES                       GU050D1C
+032700             PIRU-REQUESTED-PMT-SVC        PIC  X(01).            GU050D1C
+032800         10  PIRU-TCOB-INCL-TXN            PIC  X(01).            CC5807
+032900         10  PIRU-PURCH-ID-FORMAT          PIC  X(01).            GU050D1C
+033000         10  PIRU-CARDHOLDER-ACTIV-TERMINAL PIC X(03).            GU050D1C
+033300         10  PIRU-PREPAID-CARD-INDICATOR   PIC  X(01).            GU050D1C
+033400*                                                                 GU050D1C
+033500         10  PIRU-PLAN-ID                  PIC  X(06).            GU050D1C
+033600         10  PIRU-PLAN-SEQ                 PIC  9(03).            GU050D1C
+033700         10  PIRU-STORE-NBR                PIC  X(09).            GU050D1C
+034100         10  PIRU-PMTS-FIXED               PIC  S9(11)V99         GU050D1C
+034200                                           SIGN TRAILING SEPARATE.GU050D1C
+034300         10  PIRU-PAYMENTS-NBR             PIC  S9(03)            GU050D1C
+034400                                           SIGN TRAILING SEPARATE.GU050D1C
+034500         10  PIRU-USER-CODE                PIC  X(06).            GU050D1C
+034600         10  PIRU-TRANSFER-CODE            PIC  X(01).            GU050D1C
+034700             88  PIRU-TRANSFERRED               VALUE 'Y'.        GU050D1C
+035210         10  PIRU-VAT-TRANS-IDENTIFIER     PIC S9(07)             CC2690
+035230                                           SIGN TRAILING SEPARATE.CC2690
+035300         10  PIRU-PURCH-ORDER              PIC  X(10).            GU050D1C
+035400         10  PIRU-MULTI-INVOICE-IND        PIC  X(01).            GU050D1C
+035500         10  PIRU-FRONT-LOAD-INTEREST-AMT  PIC S9(11)V99          GU050D1C
+035600                                           SIGN TRAILING SEPARATE.GU050D1C
+035700*                                                                 GU050D1C
+035800         10  PIRU-FRONT-LOAD-INSURANCE-AMT PIC S9(11)V99          GU050D1C
+035900                                           SIGN TRAILING SEPARATE.GU050D1C
+036000         10  PIRU-FRONT-LOAD-INTEREST-RATE PIC S999V9(6)          GU050D1C
+036100                                           SIGN TRAILING SEPARATE.GU050D1C
+036200         10  PIRU-OTHER-FILES-IND          PIC  X.                GU050D1C
+036300             88 PIRU-NO-ADDENDUM-NO-IDF        VALUE '0'.         GU050D1C
+036400             88 PIRU-YES-ADDENDUM-NO-IDF       VALUE '1'.         GU050D1C
+036500             88 PIRU-YES-ADDENDUM-YES-IDF      VALUE '2'.         GU050D1C
+036600             88 PIRU-NO-ADDENDUM-YES-IDF       VALUE '3'.         GU050D1C
+036700             88 PIRU-YES-ADDENDUM              VALUES '1', '2'.   GU050D1C
+036800             88 PIRU-NO-ADDENDUM               VALUES '0', '3'.   GU050D1C
+036900             88 PIRU-YES-IDF                   VALUES '2', '3'.   GU050D1C
+037000             88 PIRU-NO-IDF                    VALUES '0', '1'.   GU050D1C
+037100         10  PIRU-POST-CURR-CODE           PIC  X(03).            GU050D1C
+037105*                                                                 K62251
+037110*                                                                 K62251
+037115*                                                                 K62251
+037120*                                                                 K62251
+037125*                                                                 K62251
+037130*                                                                 K62251
+037135*                                                                 K62251
+037140*                                                                 K62251
+037200         10  PIRU-PLAN-TYPE                PIC  X(01).            GU050D1C
+037300         10  PIRU-PLAN-CATEGORY            PIC  X(02).            GU050D1C
+037400             88  PIRU-PLAN-TIERED          VALUE 'TI'.            GU050D1C
+037500*                                                                 K62251
+037600*                                                                 K62251
+037700*                                                                 K62251
+037800*                                                                 K62251
+037900*                                                                 K62251
+038000*                                                                 K62251
+038100*                                                                 GU050D1C
+038200         10  PIRU-GL-INPUT-SOURCE          PIC  X(03).            GU050D1C
+038300         10  PIRU-VISA-TRAN-QUAL           PIC  X(01).            GU050D1C
+038400             88  PIRU-NORMAL-VISA-TRAN             VALUES ' ' '0'.GU050D1C
+038500             88  PIRU-VISA-ACCT-FUND-TRAN          VALUE  '1'.    GU050D1C
+038600             88  PIRU-VISA-ACCT-XFER-TRAN          VALUE  '2'.    GU050D1C
+038610*                                                                  62
+038612         10  PIRU-MERCHANT.                                       K62251
+038613             15  PIRU-MERCHANT-CORP        PIC  X(02).            K62251
+038614             15  PIRU-MERCHANT-NO          PIC  X(16).            K62251
+038616         10  PIRU-ISS-OR-ACQ               PIC  X(01).            K62251
+038618         10  PIRU-LOYALTY-PARTICIPATION    PIC  X(01).            K62251
+038620         10  PIRU-ICCR-AMT                 PIC S9(12)             KTC251B
+038621                                           SIGN TRAILING SEPARATE.KTC251B
+038635         10  PIRU-MCCR-AMT                 PIC S9(12)             KTC251B
+038636                                           SIGN TRAILING SEPARATE.KTC251B
+038650         10  PIRU-PLAN-PAYOFF-RSN          PIC  X(03).            KTC251A
+038652         10  PIRU-VISA-FEE-PROG-IND        PIC  X(03).            S812643
+038653         10  PIRU-CROSS-BORDER-DATA.                              S902694
+038654             15  PIRU-CROSS-BORDER-IND     PIC  X(01).            S902694
+038655             15  PIRU-CURRENCY-IND         PIC  X(01).            S902694
+038656         10  PIRU-PRODUCT                  PIC  X(06).            LA00503
+038657         10  PIRU-UPD-USER-AMT-FLAG        PIC  X(01).            90N377
+038660         10  PIRU-ITEM-NUMBER              PIC  S9(04)            KTC251B
+038671                                           SIGN TRAILING SEPARATE.KTC251B
+038672         10  GU050-SEG92-LOYALTY-TID.                             CC5814
+038674             15  GU050-SEG92-LOY-TID-FILE-ID   PIC  X(01).        CC5814
+038676             15  GU050-SEG92-LOY-TID-SYSTEM-ID PIC  X(03).        CC5814
+038678             15  GU050-SEG92-LOY-TID-SEG-ID    PIC  X(02).        CC5814
+038680             15  GU050-SEG92-LOY-TID-CREATE-DT PIC  X(05).        CC5814
+038682             15  GU050-SEG92-LOY-TID-SEQ-NUM   PIC  X(09).        CC5814
+038684             15  FILLER                        PIC  X(08).        CC5814
+038686*                                                                 CC5814
+039150*DEL 038687,039150  >>>  THESE LINES WERE DELETED BY  >>>         CC2394
+039200*                                                                 GU050D1C
+039300         10  GU050-SEG06-SYS-TRACE-AUDIT   PIC 9(06).             CC6516
+039305         10  GU050-PROCESSING-CODE         PIC 9(06).             CC6516
+039400*                                                                 GU050D1C
+039500*                                                                 CC2394
+039600*                                                                 CC2394
+039700*                                                                 CC2394
+099900*                                                                 CC2394
+100000         10  FILLER                        PIC  X(65).            CC6516
+100100*                                                                 CC2394
+100200*                                                                 CC2394
+200102     05  GU050-SEG92-AUTH-PASS-IND         PIC  X(01).            CC5779
+200104     05  GU050-SEG07-VR-TCR5-TRANS-ID      PIC  X(15).            CC5779
+200106     05  GU050-SEG06-MC-TRACE-ID REDEFINES                        CC5779
+200108         GU050-SEG07-VR-TCR5-TRANS-ID.                            CC5779
+200110         10  GU050-SEG06-MC-BANKNET-REF-NO                        CC5779
+200112                                           PIC  X(09).            CC5779
+200114         10  GU050-SEG06-MC-BANKNET-DATE                          CC5779
+200116                                           PIC  9(04).            CC5779
+200118         10  FILLER                        PIC  X(02).            CC5779
+200124     05  GU050-SEG11-MATCH-AUTH-AMT        PIC  S9(11)V99         CC5779
+200126                                           SIGN TRAILING SEPARATE.CC5779
+200128     05  GU050-SEG04-PAYMENT-ACCT-REF      PIC  X(29).            CC5779
+200200*                                                                 CC2394
+200210*                                                                 CC5779
+200220     05  GU050-SEG03-DS-TRAN-ID            PIC  X(36).            CC5318
+200300     05  GU050-ADDENDUM-REC-KEY            PIC  X(15).            CC2394A
+200400*                                                                 CC2394
+200500     05  GU050-SEG89-DATA.                                        CC2394A
+200600         10  GU050-SEG89-DIV-IND           PIC  X(001).           CC2394A
+200700         10  GU050-SEG89-ORIG-DIV-ACCT     PIC  X(016).           CC2394A
+200800         10  GU050-SEG89-ORIG-TRAN-AMT     PIC  S9(11)V99         CC2394A
+200900                                           SIGN TRAILING SEPARATE.CC2394
+201000         10  GU050-SEG89-ORIG-TRAN-CD      PIC  9(002).           CC2394A
+201100         10  GU050-SEG89-ORIG-REAS-CD      PIC  X(002).           CC2394A
+201200         10  GU050-SEG89-CONS-CARD-TYP     PIC  X(001).           CC2394A
+201300         10  GU050-SEG89-GEN-TRAN-IND      PIC  X(001).           CC2394A
+201400         10  GU050-SEG89-DISP-REF-NBR      PIC  X(010).           CC2394A
+201500     05  GU050-SEG06-POS-DATA-CODE         PIC  X(12).            CC2394A
+201600     05  GU050-SEG06-ACCEPTOR-TERM-ID      PIC  X(08).            CC2394A
+201700*                                                                 CC2394
+201800     05  GU050-SEG10-POS-TERM-CAP          PIC  X(001).           CC2394A
+201900     05  GU050-SEG11-ADJ-REASON-CODE       PIC  X(002).           CC2394A
+202000     05  GU050-SEG15-INTEREST-FREE-DAYS    PIC  9(004).           CC2471
+202100     05  GU050-SEG15-PMT-DEFER-CYCLES      PIC  9(003).           CC2471
+202200     05  GU050-SEG10-POS-COND-CODE         PIC  X(002).           CC2569E
+202300     05  GU050-SEG92-AUTH-TIME             PIC  S9(07)            CC2706A
+202400                                           SIGN TRAILING SEPARATE.CC2706
+202402     05  GU050-SEG92-AFT-TRAN-ACCT-BAL     PIC  S9(11)V99         CC2753
+202404                                           SIGN TRAILING SEPARATE.CC2753
+202406     05  GU050-SEG92-INSTITUTION-ID        PIC  X(05).            CC3120
+202410     05  GU050-MOB-PAY-TOKEN               PIC  X(19).            CC3757
+202411     05  GU050-VIRTUAL-CARD-NO             REDEFINES              CC4658
+202412         GU050-MOB-PAY-TOKEN               PIC  X(19).            CC4658
+202415     05  GU050-SEG03-WALLET-ID             PIC  X(03).            CC3757
+202420     05  GU050-SEG92-UNIQ-ID               PIC  S9(15)            CC3747A
+202425                                           SIGN TRAILING SEPARATE.CC3747A
+202430     05  GU050-SEG92-VCN-TRAN              PIC  X(01).            CC4293
+202431     05  GU050-SEG92-AAV.                                         CC5318A
+202433         10 GU050-SEG92-FEE-REV-OPT        PIC  X(01).            CC5977
+202434         10 GU050-SEG92-FEE-BASIS-AMT      PIC S9(11)V99          CC5977
+202435                                           SIGN TRAILING SEPARATE.CC5977
+202436         10 GU050-SEG92-FEE-ENTRY-ID       PIC  X(04).            CC5977
+202437         10 FILLER                         PIC  X(13).            CC5977
+202440     05  GU050-SEG92-ACQ-COUNTRY-CODE      PIC  X(03).            CC5318
+202445     05  GU050-SEG06-SEC-PROTOCOL          PIC  9(01).            CC5318
+202450     05  GU050-SEG06-CHD-AUTHENTICATION    PIC  9(01).            CC5318
+202455     05  GU050-SEG06-UCAF-IND              PIC  9(01).            CC5318
+202460     05  GU050-SEG92-ACQ-EXEMPT-VALUE      PIC  X(02).            CC5428
+202465*                                                                 CC5428
+202470     05  GU050-SEG92-ISS-EXEMPT-VALUE      PIC  X(01).            CC5428
+202475     05  FILLER                            PIC  X(01).            CC5428
+202480     05  GU050-SEG92-C-LV-EXEMPT-VALUE     PIC  X(01).            CC5318
+202485     05  FILLER                            PIC  X(01).            CC5428
+202500     05  GU050-SEG92-ORIG-GL-SOURCE        PIC  X(03).            CC5803
+299900*                                                                 CC2394
+300000     05  FILLER                            PIC  X(10).            CC5803
+999600*                                                                 CC2394
+999700***************************************************************** CC2394
+999800*          E N D   C O P Y B O O K   G U 0 5 0 D 1 C            * CC2394
+999900***************************************************************** CC2394

@@ -1,0 +1,7 @@
+       01  PIRU-RECORD-H.
+           05  PIRU-CORPORATION-NUMBER  PIC X(2).
+           05  PIRU-ACCOUNT-NO1         PIC X(16).
+           05  FILLER                   PIC X(16).
+           05  PIRU-FILE-ID             PIC 9(8).
+           05  FILE_DT           PIC 9(8).
+           05  FILLER                   PIC X(850).

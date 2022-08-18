@@ -1,0 +1,10 @@
+       01  NAU-RECORD-H.
+           05  BCFU-CORPORATION-NUMBER  PIC X(2).
+           05  BCFU-ACCOUNT-NO1         PIC X(16).
+           05  BCFU-PLAN-ID             PIC X(6).
+           05  BCFU-PLAN-SEQ            PIC 9(3).
+           05  FILE-DT                  PIC S9(9)
+				                     SIGN TRAILING SEPARATE.
+		    05  BCFU-FILE-DATE-NEXT   PIC S9(9)
+                                     SIGN TRAILING SEPARATE.
+           05  FILLER                   PIC X(2953).

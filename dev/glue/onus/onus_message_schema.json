@@ -1,0 +1,36 @@
+{
+  "columns": [
+    {
+      "final_name": "meta.messageId",
+      "generate": "uuid"
+    },
+    {
+      "final_name": "meta.time",
+      "generate": "timestamp"
+    },
+    {
+      "final_name": "meta.source",
+      "default_value": "omf.datalake.onus.glue"
+    },
+    {
+      "final_name": "meta.messageType",
+      "default_value": "omf.datalake.onus_record"
+    },
+    {
+      "final_name": "meta.version",
+      "default_value": "2.0"
+    },
+    {
+      "name" : "BK",
+      "final_name" : "data.bankruptcyFlag"
+    },
+    {
+      "name" : "CO",
+      "final_name" : "data.chargeoffFlag"
+    },
+    {
+      "name" : "SSN",
+      "final_name" : "data.ssn"
+    }
+  ]
+}

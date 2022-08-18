@@ -1,0 +1,9 @@
+variable "username" {}
+variable "path" {}
+variable "iam-role-name" {}
+variable "iam-policy-name" {}
+variable "bucketname" {}
+//variable "tags" {}
+variable "aws-sftp-id" {}
+variable "aws-s3-id" {}
+variable "aws-s3-arn" {}

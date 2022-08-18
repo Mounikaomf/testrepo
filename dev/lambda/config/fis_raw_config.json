@@ -1,0 +1,60 @@
+{
+  "append_datetime": true,
+  "source_prefix_filter": "fisvgs",
+  "destination_prefix": "raw",
+  "comments" : "destination_bucket: somename - not an option",
+  "copy_options": [
+    {
+      "source_prefix_filter": "fisvgs/GU010D",
+      "destination_prefix": "raw/cardholder_master"
+    },
+    {
+      "source_prefix_filter": "fisvgs/GU011D",
+      "destination_prefix": "raw/nameaddress"
+    },
+    {
+      "source_prefix_filter": "fisvgs/GU052D",
+      "destination_prefix": "raw/paymentallocation"
+    },
+    {
+      "source_prefix_filter": "fisvgs/GU050D",
+      "destination_prefix": "raw/posteditems"
+    },
+    {
+      "source_prefix_filter": "fisvgs/GU090D",
+      "destination_prefix": "raw/cardholder_plan"
+    },
+    {
+      "source_prefix_filter": "fisvgs/GU045D",
+      "destination_prefix": "raw/generalledger"
+    },
+    {
+      "source_prefix_filter": "fisvgs/BOSH reports",
+      "destination_prefix": "raw/BOSH reports"
+    },
+    {
+      "source_prefix_filter": "fisvgs/Collections",
+      "destination_prefix": "raw/Collections"
+    },
+    {
+      "source_prefix_filter": "fisvgs/Analytix Reports",
+      "destination_prefix": "raw/Analytix Reports"
+    },
+    {
+      "source_prefix_filter": "fisvgs/Account Maintenance batch file",
+      "destination_prefix": "raw/Account Maintenance batch file"
+    },
+    {
+      "source_prefix_filter": "fisvgs/eReports",
+      "destination_prefix": "raw/eReports"
+    },
+    {
+      "source_prefix_filter": "fisvgs/FOS statement index file",
+      "destination_prefix": "raw/FOS statement index file"
+    },
+    {
+      "source_prefix_filter": "fisvgs/WebBank settlement file",
+      "destination_prefix": "raw/WebBank settlement file"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+   "withHeader":true,
+   "separator":"|",
+   "tables":{
+      "PCCM_FEEDBACK":{
+         "key":"KEYFIELDNAME"
+      }
+   }
+}

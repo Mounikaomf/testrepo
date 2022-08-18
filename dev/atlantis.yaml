@@ -1,0 +1,11 @@
+# Atlantis repo config
+version: 3
+projects:
+  - dir: terraform/aws/services-layer
+    terraform_version: v0.13.5
+  - dir: terraform/aws/services-layer-preparation
+    terraform_version: v0.13.5
+  - dir: terraform/aws/account-layer-preparation
+    terraform_version: v0.13.5
+  - dir: terraform/aws/account-layer
+    terraform_version: v0.13.5
